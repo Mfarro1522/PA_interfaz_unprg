@@ -34,15 +34,15 @@ public class jdLogin extends javax.swing.JDialog {
     private void initComponents() {
 
         bgPanel = new Recursos.componentes.GradientPanel(new java.awt.Color(224, 230, 247), new java.awt.Color(249, 250, 252));
-        loginPanel = new Recursos.componentes.ImagePanel("/res/imagenes/bgLogin.jpg", 30,true);
-        logoBiblioteca = new Recursos.componentes.ImagePanel("/res/imagenes/logo.png", 0);
+        loginPanel = new Recursos.componentes.ImagePanel("/Recursos/Assets/bgLogin.jpg", 30,true);
+        logoBiblioteca = new Recursos.componentes.ImagePanel("/Recursos/Assets/logo.png", 0);
         lbltitulo = new javax.swing.JLabel();
         lblSubtitulo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        imagenUser = new Recursos.componentes.ImagePanel("/res/imagenes/userlogo.png", 30);
+        imagenUser = new Recursos.componentes.ImagePanel("/Recursos/Assets/userlogo.png", 30);
         txtUsuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        imagenContra = new Recursos.componentes.ImagePanel("/res/imagenes/contralogo.png", 30);
+        imagenContra = new Recursos.componentes.ImagePanel("/Recursos/Assets/contralogo.png", 30);
         txtContraseña = new javax.swing.JPasswordField();
         btnRsContra = new javax.swing.JLabel();
         jButton1 = new Recursos.componentes.RoundedButton(20);

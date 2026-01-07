@@ -37,10 +37,10 @@ public class frMenu extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtFechaHoy = new javax.swing.JLabel();
-        jPanel4 = new Recursos.componentes.CircularButton("/res/imagenes/logo.png");
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new Recursos.componentes.CircularButton("/res/imagenes/logo.png");
-        jPanel7 = new Recursos.componentes.CircularButton("/res/imagenes/logo.png");
+        jPanel4 = new Recursos.componentes.CircularButton("/Recursos/Assets/logo.png");
+        jPanel5 = new Recursos.componentes.CircularButton("/Recursos/Assets/logo.png");
+        jPanel6 = new Recursos.componentes.CircularButton("/Recursos/Assets/logo.png");
+        jPanel7 = new Recursos.componentes.CircularButton("/Recursos/Assets/logo.png");
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();

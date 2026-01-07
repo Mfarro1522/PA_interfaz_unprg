@@ -294,7 +294,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.CircularButton(&quot;/res/imagenes/logo.png&quot;)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.CircularButton(&quot;/Recursos/Assets/logo.png&quot;)"/>
           </AuxValues>
 
           <Layout>
@@ -316,6 +316,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.CircularButton(&quot;/Recursos/Assets/logo.png&quot;)"/>
+          </AuxValues>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel5MouseClicked"/>
           </Events>
@@ -340,7 +343,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.CircularButton(&quot;/res/imagenes/logo.png&quot;)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.CircularButton(&quot;/Recursos/Assets/logo.png&quot;)"/>
           </AuxValues>
 
           <Layout>
@@ -363,7 +366,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.CircularButton(&quot;/res/imagenes/logo.png&quot;)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.CircularButton(&quot;/Recursos/Assets/logo.png&quot;)"/>
           </AuxValues>
 
           <Layout>

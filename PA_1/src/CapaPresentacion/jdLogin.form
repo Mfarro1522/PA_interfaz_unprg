@@ -67,7 +67,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.ImagePanel(&quot;/res/imagenes/bgLogin.jpg&quot;, 30,true)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.ImagePanel(&quot;/Recursos/Assets/bgLogin.jpg&quot;, 30,true)"/>
           </AuxValues>
 
           <Layout>
@@ -179,7 +179,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.ImagePanel(&quot;/res/imagenes/logo.png&quot;, 0)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.ImagePanel(&quot;/Recursos/Assets/logo.png&quot;, 0)"/>
               </AuxValues>
 
               <Layout>
@@ -221,7 +221,7 @@
             </Component>
             <Container class="javax.swing.JPanel" name="imagenUser">
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.ImagePanel(&quot;/res/imagenes/userlogo.png&quot;, 30)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.ImagePanel(&quot;/Recursos/Assets/userlogo.png&quot;, 30)"/>
               </AuxValues>
 
               <Layout>
@@ -254,7 +254,7 @@
             </Component>
             <Container class="javax.swing.JPanel" name="imagenContra">
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.ImagePanel(&quot;/res/imagenes/contralogo.png&quot;, 30)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.ImagePanel(&quot;/Recursos/Assets/contralogo.png&quot;, 30)"/>
               </AuxValues>
 
               <Layout>

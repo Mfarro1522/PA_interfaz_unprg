@@ -61,7 +61,7 @@ public class frmManLibro extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jTable2);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(207, 235, 235));
 
