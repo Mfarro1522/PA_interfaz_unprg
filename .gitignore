@@ -1,0 +1,39 @@
+# Archivos compilados
+*.class
+*.log
+*.jar
+*.war
+
+# Carpetas de salida de compilación
+bin/
+build/
+target/
+dist/
+
+# Rutas relativas desde la carpeta superior
+PA_1/build/
+PA_1/dist/
+PA_1/nbproject/private/
+
+# Netbeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Intellij
+.idea/
+*.iml
+out/
+
+# Eclipse
+.metadata/
+.settings/
+.loadpath
+.project
+.classpath
+
+# so
+.DS_Store
+Thumbs.db
