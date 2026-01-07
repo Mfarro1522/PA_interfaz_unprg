@@ -1,4 +1,4 @@
-package Custom;
+package Recursos.componentes;
 
 import javax.swing.*;
 import java.awt.*;

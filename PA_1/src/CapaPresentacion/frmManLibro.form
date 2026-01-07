@@ -349,7 +349,7 @@
                 <Property name="text" type="java.lang.String" value="REGISTRAR"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.RoundedButton(20)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.RoundedButton(20)"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="btnActualizar">
@@ -360,7 +360,7 @@
                 <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.RoundedButton(20)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.RoundedButton(20)"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="btnBuscar">
@@ -371,7 +371,7 @@
                 <Property name="text" type="java.lang.String" value="BUSCAR"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.RoundedButton(20)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.RoundedButton(20)"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="btnEliminar">
@@ -382,7 +382,7 @@
                 <Property name="text" type="java.lang.String" value="ELIMINAR"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.RoundedButton(20)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.RoundedButton(20)"/>
               </AuxValues>
             </Component>
           </SubComponents>

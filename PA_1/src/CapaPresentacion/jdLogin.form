@@ -36,7 +36,7 @@
   <SubComponents>
     <Container class="javax.swing.JPanel" name="bgPanel">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.GradientPanel(new java.awt.Color(224, 230, 247), new java.awt.Color(249, 250, 252))"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.GradientPanel(new java.awt.Color(224, 230, 247), new java.awt.Color(249, 250, 252))"/>
       </AuxValues>
 
       <Layout>
@@ -67,7 +67,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.ImagePanel(&quot;/res/imagenes/bgLogin.jpg&quot;, 30,true)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.ImagePanel(&quot;/res/imagenes/bgLogin.jpg&quot;, 30,true)"/>
           </AuxValues>
 
           <Layout>
@@ -179,7 +179,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.ImagePanel(&quot;/res/imagenes/logo.png&quot;, 0)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.ImagePanel(&quot;/res/imagenes/logo.png&quot;, 0)"/>
               </AuxValues>
 
               <Layout>
@@ -221,7 +221,7 @@
             </Component>
             <Container class="javax.swing.JPanel" name="imagenUser">
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.ImagePanel(&quot;/res/imagenes/userlogo.png&quot;, 30)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.ImagePanel(&quot;/res/imagenes/userlogo.png&quot;, 30)"/>
               </AuxValues>
 
               <Layout>
@@ -254,7 +254,7 @@
             </Component>
             <Container class="javax.swing.JPanel" name="imagenContra">
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.ImagePanel(&quot;/res/imagenes/contralogo.png&quot;, 30)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.ImagePanel(&quot;/res/imagenes/contralogo.png&quot;, 30)"/>
               </AuxValues>
 
               <Layout>
@@ -310,7 +310,7 @@
                 <Property name="text" type="java.lang.String" value="Iniciar sesi&#xf3;n"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.RoundedButton(20)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.RoundedButton(20)"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">

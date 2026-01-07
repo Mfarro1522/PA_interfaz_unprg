@@ -1,6 +1,6 @@
 package CapaPresentacion;
 
-import Custom.GradientPanel;
+import Recursos.componentes.GradientPanel;
 import java.awt.Color;
 import java.awt.Frame;
 import javax.swing.JOptionPane;
@@ -33,19 +33,19 @@ public class jdLogin extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bgPanel = new Custom.GradientPanel(new java.awt.Color(224, 230, 247), new java.awt.Color(249, 250, 252));
-        loginPanel = new Custom.ImagePanel("/res/imagenes/bgLogin.jpg", 30,true);
-        logoBiblioteca = new Custom.ImagePanel("/res/imagenes/logo.png", 0);
+        bgPanel = new Recursos.componentes.GradientPanel(new java.awt.Color(224, 230, 247), new java.awt.Color(249, 250, 252));
+        loginPanel = new Recursos.componentes.ImagePanel("/res/imagenes/bgLogin.jpg", 30,true);
+        logoBiblioteca = new Recursos.componentes.ImagePanel("/res/imagenes/logo.png", 0);
         lbltitulo = new javax.swing.JLabel();
         lblSubtitulo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        imagenUser = new Custom.ImagePanel("/res/imagenes/userlogo.png", 30);
+        imagenUser = new Recursos.componentes.ImagePanel("/res/imagenes/userlogo.png", 30);
         txtUsuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        imagenContra = new Custom.ImagePanel("/res/imagenes/contralogo.png", 30);
+        imagenContra = new Recursos.componentes.ImagePanel("/res/imagenes/contralogo.png", 30);
         txtContraseña = new javax.swing.JPasswordField();
         btnRsContra = new javax.swing.JLabel();
-        jButton1 = new Custom.RoundedButton(20);
+        jButton1 = new Recursos.componentes.RoundedButton(20);
         jLabel1 = new javax.swing.JLabel();
         btnRegistrarse = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();

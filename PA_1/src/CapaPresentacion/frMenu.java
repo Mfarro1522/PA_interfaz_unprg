@@ -30,17 +30,17 @@ public class frMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new Custom.GradientPanel(new java.awt.Color(245, 247, 252), new java.awt.Color(230, 235, 253));
+        jPanel1 = new Recursos.componentes.GradientPanel(new java.awt.Color(245, 247, 252), new java.awt.Color(230, 235, 253));
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtFechaHoy = new javax.swing.JLabel();
-        jPanel4 = new Custom.CircularButton("/res/imagenes/logo.png");
-        jPanel5 = new Custom.CircularButton("/res/imagenes/logo.png");
-        jPanel6 = new Custom.CircularButton("/res/imagenes/logo.png");
-        jPanel7 = new Custom.CircularButton("/res/imagenes/logo.png");
+        jPanel4 = new Recursos.componentes.CircularButton("/res/imagenes/logo.png");
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new Recursos.componentes.CircularButton("/res/imagenes/logo.png");
+        jPanel7 = new Recursos.componentes.CircularButton("/res/imagenes/logo.png");
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -49,19 +49,19 @@ public class frMenu extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jPanel8 = new Custom.RoundedPanel(30);
+        jPanel8 = new Recursos.componentes.RoundedPanel(30);
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
-        jPanel9 = new Custom.RoundedPanel(30);
+        jPanel9 = new Recursos.componentes.RoundedPanel(30);
         jLabel14 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
-        jPanel10 = new Custom.RoundedPanel(30);
+        jPanel10 = new Recursos.componentes.RoundedPanel(30);
         jLabel16 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
-        jPanel11 = new Custom.RoundedPanel(30);
+        jPanel11 = new Recursos.componentes.RoundedPanel(30);
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
@@ -424,7 +424,7 @@ public class frMenu extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(299, 299, 299)
                                 .addComponent(txtFechaHoy)))
-                        .addContainerGap(73, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()

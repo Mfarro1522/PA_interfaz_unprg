@@ -1,4 +1,4 @@
-package Custom;
+package Recursos.componentes;
 
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;

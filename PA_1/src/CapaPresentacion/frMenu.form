@@ -40,7 +40,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.GradientPanel(new java.awt.Color(245, 247, 252), new java.awt.Color(230, 235, 253))"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.GradientPanel(new java.awt.Color(245, 247, 252), new java.awt.Color(230, 235, 253))"/>
       </AuxValues>
 
       <Layout>
@@ -115,7 +115,7 @@
                                   <Component id="txtFechaHoy" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="73" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -294,7 +294,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.CircularButton(&quot;/res/imagenes/logo.png&quot;)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.CircularButton(&quot;/res/imagenes/logo.png&quot;)"/>
           </AuxValues>
 
           <Layout>
@@ -319,9 +319,6 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel5MouseClicked"/>
           </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.CircularButton(&quot;/res/imagenes/logo.png&quot;)"/>
-          </AuxValues>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -343,7 +340,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.CircularButton(&quot;/res/imagenes/logo.png&quot;)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.CircularButton(&quot;/res/imagenes/logo.png&quot;)"/>
           </AuxValues>
 
           <Layout>
@@ -366,7 +363,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.CircularButton(&quot;/res/imagenes/logo.png&quot;)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.CircularButton(&quot;/res/imagenes/logo.png&quot;)"/>
           </AuxValues>
 
           <Layout>
@@ -453,7 +450,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.RoundedPanel(30)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.RoundedPanel(30)"/>
           </AuxValues>
 
           <Layout>
@@ -525,7 +522,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.RoundedPanel(30)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.RoundedPanel(30)"/>
           </AuxValues>
 
           <Layout>
@@ -597,7 +594,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.RoundedPanel(30)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.RoundedPanel(30)"/>
           </AuxValues>
 
           <Layout>
@@ -669,7 +666,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Custom.RoundedPanel(30)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.RoundedPanel(30)"/>
           </AuxValues>
 
           <Layout>

@@ -41,10 +41,10 @@ public class frmManLibro extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        btnRegistrar = new Custom.RoundedButton(20);
-        btnActualizar = new Custom.RoundedButton(20);
-        btnBuscar = new Custom.RoundedButton(20);
-        btnEliminar = new Custom.RoundedButton(20);
+        btnRegistrar = new Recursos.componentes.RoundedButton(20);
+        btnActualizar = new Recursos.componentes.RoundedButton(20);
+        btnBuscar = new Recursos.componentes.RoundedButton(20);
+        btnEliminar = new Recursos.componentes.RoundedButton(20);
         jCheckBox1 = new javax.swing.JCheckBox();
         jPanel3 = new javax.swing.JPanel();
 
