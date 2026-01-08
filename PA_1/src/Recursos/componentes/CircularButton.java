@@ -10,10 +10,10 @@ import java.awt.geom.Ellipse2D;
  * Panel circular con imagen centrada y sombra opcional.
  * 
  * USO EN NETBEANS:
- * Custom creation: new Custom.CircularButton()
- * Custom creation con sombra: new Custom.CircularButton(true)
- * Custom creation con imagen: new Custom.CircularButton("/res/imagenes/icono.png")
- * Custom creation con imagen y sombra: new Custom.CircularButton("/res/imagenes/icono.png", true)
+ *   new Recursos.componentes.CircularButton()
+ *   new Recursos.componentes.CircularButton(true)
+ *   new Recursos.componentes.CircularButton("/Recursos/Assets/icono.png")
+ *   new Recursos.componentes.CircularButton("/Recursos/Assets/icono.png", true)
  * 
  * Luego usar setBackground() para el color de fondo.
  * La imagen se muestra centrada SIN escalar (tamaño original).

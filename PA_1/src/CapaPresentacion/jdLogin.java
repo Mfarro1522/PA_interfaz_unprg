@@ -43,7 +43,7 @@ public class jdLogin extends javax.swing.JDialog {
         imagenContra = new Recursos.componentes.ImagePanel("/Recursos/Assets/contralogo.png", 30);
         txtContraseña = new javax.swing.JPasswordField();
         btnRsContra = new javax.swing.JLabel();
-        jButton1 = new Recursos.componentes.RoundedButton(20);
+        jButton1 = new Recursos.componentes.RoundedButton(new java.awt.Color(22,86,222), new java.awt.Color(22,86,222), 20, 0);
         jLabel1 = new javax.swing.JLabel();
         btnRegistrarse = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();

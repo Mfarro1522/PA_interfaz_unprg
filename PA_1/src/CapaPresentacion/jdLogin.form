@@ -310,7 +310,7 @@
                 <Property name="text" type="java.lang.String" value="Iniciar sesi&#xf3;n"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.RoundedButton(20)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.RoundedButton(new java.awt.Color(22,86,222), new java.awt.Color(22,86,222), 20, 0)"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">

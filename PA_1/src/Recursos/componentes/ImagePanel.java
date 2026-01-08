@@ -7,8 +7,10 @@ import java.awt.geom.RoundRectangle2D;
 /**
  * Panel con imagen de fondo y sombra opcional
  * 
- * USO: new Custom.ImagePanel("/imagenes/fondo.png", 30)
- * CON SOMBRA: new Custom.ImagePanel("/imagenes/fondo.png", 30, true)
+ * USO EN NETBEANS:
+ *   new Recursos.componentes.ImagePanel("/Recursos/Assets/fondo.png")
+ *   new Recursos.componentes.ImagePanel("/Recursos/Assets/fondo.png", 30)
+ *   new Recursos.componentes.ImagePanel("/Recursos/Assets/fondo.png", 30, true)
  */
 public class ImagePanel extends JPanel {
 

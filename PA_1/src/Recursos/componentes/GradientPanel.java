@@ -4,9 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 /***
- * Panel con fondo degradado.
+ * Panel con fondo degradado vertical (de arriba hacia abajo).
  * 
- * USO: new Custom.GradientPanel(Color.INICIO, Color.FIN)
+ * USO EN NETBEANS:
+ *   new Recursos.componentes.GradientPanel()
+ *   new Recursos.componentes.GradientPanel(new java.awt.Color(30,30,120), new java.awt.Color(50,100,200))
  * */
 
 public class GradientPanel extends JPanel {

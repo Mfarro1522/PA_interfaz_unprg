@@ -8,8 +8,8 @@ import java.awt.geom.RoundRectangle2D;
  * Panel con esquinas redondeadas.
  * 
  * USO EN NETBEANS:
- * Custom creation: new Custom.RoundedPanel()
- * Custom creation con redondeo: new Custom.RoundedPanel(20)
+ *   new Recursos.componentes.RoundedPanel()
+ *   new Recursos.componentes.RoundedPanel(20)
  * 
  * Luego usar setBackground() para el color.
  */
