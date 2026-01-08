@@ -13,7 +13,7 @@ public class Prestamo {
     private Usuario usuario;
     private LocalDate fechaSalida;
     private LocalDate fechaDevolucion;
-    private boolean activo;
+    private boolean estado;
 
     public Prestamo(String id, Libro libro, Usuario usuario, LocalDate fechaSalida, LocalDate fechaDevolucion, boolean activo) {
         this.id = id;
@@ -21,7 +21,7 @@ public class Prestamo {
         this.usuario = usuario;
         this.fechaSalida = fechaSalida;
         this.fechaDevolucion = null;
-        this.activo = true;
+        this.estado = true;
     }
 
     public String getId() {
@@ -64,17 +64,17 @@ public class Prestamo {
         this.fechaDevolucion = fechaDevolucion;
     }
 
-    public boolean isActivo() {
-        return activo;
+    public boolean isEstado() {
+        return estado;
     }
 
-    public void setActivo(boolean activo) {
-        this.activo = activo;
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
     
     public void finalizarPrestamo() {
         this.fechaDevolucion = LocalDate.now();
-        this.activo = false;
+        this.estado = false;
         this.libro.setDisponible(true);
     }
 }
