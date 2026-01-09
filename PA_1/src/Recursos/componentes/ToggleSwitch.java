@@ -47,11 +47,19 @@ public class ToggleSwitch extends JCheckBox {
         setFocusPainted(false);
         setCursor(new Cursor(Cursor.HAND_CURSOR));
         
+        // Desactivar el modelo predeterminado del JCheckBox para manejarlo nosotros
+        setModel(new DefaultButtonModel() {
+            @Override
+            public void setPressed(boolean b) {
+                // No hacer nada - manejamos el clic manualmente
+            }
+        });
+        
         // Tamaño preferido basado en el switch
         setPreferredSize(new Dimension(switchWidth, switchHeight));
         setMinimumSize(new Dimension(switchWidth, switchHeight));
         
-        // Listener para hover
+        // Listener para hover y clic
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -64,11 +72,19 @@ public class ToggleSwitch extends JCheckBox {
                 hover = false;
                 repaint();
             }
+            
+            @Override
+            public void mousePressed(MouseEvent e) {
+                // Cambiar estado al hacer clic
+                if (isEnabled() && SwingUtilities.isLeftMouseButton(e)) {
+                    toggleState();
+                }
+            }
         });
         
         // Timer para animación suave
         animationTimer = new Timer(10, e -> {
-            float target = isSelected() ? 1f : 0f;
+            float target = selected ? 1f : 0f;
             float speed = 0.15f;
             
             if (Math.abs(thumbPosition - target) < speed) {
@@ -82,13 +98,36 @@ public class ToggleSwitch extends JCheckBox {
         });
     }
     
-    @Override
-    public void setSelected(boolean selected) {
-        super.setSelected(selected);
+    // Estado interno propio (no depender de JCheckBox)
+    private boolean selected = false;
+    
+    private void toggleState() {
+        selected = !selected;
         if (!animating) {
             animating = true;
             animationTimer.start();
         }
+        // Disparar ActionEvent para los listeners
+        fireActionPerformed(new java.awt.event.ActionEvent(
+            this, 
+            java.awt.event.ActionEvent.ACTION_PERFORMED, 
+            getActionCommand()
+        ));
+        repaint();
+    }
+    
+    @Override
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+        if (!animating) {
+            animating = true;
+            animationTimer.start();
+        }
+    }
+    
+    @Override
+    public boolean isSelected() {
+        return selected;
     }
 
     public void setSwitchSize(int width, int height) {

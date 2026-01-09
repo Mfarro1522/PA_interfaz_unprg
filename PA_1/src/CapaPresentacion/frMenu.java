@@ -420,6 +420,11 @@ public class frMenu extends javax.swing.JFrame {
      
         frmManLibro manlibro =  new frmManLibro();
         manlibro.setLocationRelativeTo(this);
+        
+        //estilo tabla//
+
+        ///
+        
         manlibro.setVisible(true);
         
         

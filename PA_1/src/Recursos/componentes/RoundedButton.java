@@ -39,7 +39,7 @@ public class RoundedButton extends JButton {
     private int tipoEfecto;
     private int shadowSize = 10;
     private int grosorBorde = 2;
-    private Color colorBorde = Color.BLACK;
+    private Color colorBorde = new Color(204,204,204);
     private boolean hover = false;
     
     private Color colorIzquierdo;
