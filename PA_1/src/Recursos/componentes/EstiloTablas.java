@@ -20,6 +20,10 @@ import javax.swing.table.JTableHeader;
 /**
  * Clase unificada para aplicar estilos Material Design a JTable
  * Incluye estilos para header y body con bordes redondeados
+ * Fuente : https://gitlab.com/martinezcesarmonkey15/tablamateriajswing/-/blob/main/src/main/java/com/mycompany/tablasmaterial/metodos.java?ref_type=heads
+ * en el Scroll panel 
+ * usar: jScrollPane1 = new Recursos.componentes.RoundedScrollPane(tablaLibros(nombredetucalse), 20)
+ * en postcreation :Recursos.componentes.EstiloTablas.aplicarEstilo(tablaLibros);
  */
 public class EstiloTablas {
 

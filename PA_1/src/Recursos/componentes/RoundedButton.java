@@ -7,6 +7,8 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 
 /**
+ * 
+ * fuente : https://1bestcsharp.blogspot.com/2025/08/java-create-rounded-buttons.html
  * Botón redondeado con degradado, borde o sombra
  * 
  * USO EN NETBEANS (Custom Creation Code):

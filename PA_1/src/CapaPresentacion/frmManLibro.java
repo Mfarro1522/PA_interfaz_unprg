@@ -246,7 +246,7 @@ public class frmManLibro extends javax.swing.JFrame {
 
         bg.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(702, 61, -1, 340));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 22)); // NOI18N
         jLabel8.setText("REGISTRO DE LIBROS");
         bg.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 

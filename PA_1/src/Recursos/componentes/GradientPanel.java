@@ -9,6 +9,7 @@ import java.awt.*;
  * USO EN NETBEANS:
  *   new Recursos.componentes.GradientPanel()
  *   new Recursos.componentes.GradientPanel(new java.awt.Color(30,30,120), new java.awt.Color(50,100,200))
+ * fuentes : https://github.com/k33ptoo/KGradientPanel
  * */
 
 public class GradientPanel extends JPanel {

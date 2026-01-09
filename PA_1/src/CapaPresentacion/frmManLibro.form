@@ -400,7 +400,7 @@
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="22" style="1"/>
+              <Font name="DejaVu Sans Condensed" size="22" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="REGISTRO DE LIBROS"/>
           </Properties>
