@@ -4,6 +4,9 @@
 *.jar
 *.war
 
+# Permite descargar la libreria jcalendar
+!lib/*.jar
+
 # Carpetas de salida de compilación
 bin/
 build/
