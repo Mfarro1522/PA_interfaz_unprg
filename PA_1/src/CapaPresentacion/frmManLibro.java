@@ -6,8 +6,6 @@ import Recursos.componentes.Funciones;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
-
 /**
  *
  * @author MELISSA
@@ -57,7 +55,7 @@ public class frmManLibro extends javax.swing.JFrame {
         jScrollPane1 = jScrollPane1 = new Recursos.componentes.RoundedScrollPane(tablaLibros, 20);
         tablaLibros = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -281,6 +279,11 @@ public class frmManLibro extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaLibros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaLibrosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaLibros);
         if (tablaLibros.getColumnModel().getColumnCount() > 0) {
             tablaLibros.getColumnModel().getColumn(0).setResizable(false);
@@ -315,15 +318,15 @@ public class frmManLibro extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         if (txtCodigo.getText().isEmpty()) {
             JOptionPane.showMessageDialog(
-                    this,
-                    "Se requiere el codigo del libro",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE
+                this,
+                "Se requiere el codigo del libro",
+                "Error",
+                JOptionPane.ERROR_MESSAGE
             );
         } else {
             String codigo = txtCodigo.getText();
             Libro objLibro = LibroDAO.getElemento(txtCodigo.getText());
-            
+
             if (objLibro != null) {
                 txtCodigo.setText(objLibro.getId());
                 txtTitulo.setText(objLibro.getTitulo());
@@ -334,10 +337,10 @@ public class frmManLibro extends javax.swing.JFrame {
                 chkEstado.setSelected(objLibro.isDisponible());
             } else {
                 JOptionPane.showMessageDialog(
-                        this,
-                        "No se encontro un libro con codigo " + codigo,
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE
+                    this,
+                    "No se encontro un libro con codigo " + codigo,
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
                 );
                 limpiar();
             }
@@ -345,7 +348,31 @@ public class frmManLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
+        if (txtCodigo.getText().isEmpty()
+            || txtTitulo.getText().isEmpty()
+            || txtAutor.getText().isEmpty()
+            || txtEditorial.getText().isEmpty()
+            || txtPublicacion.getText().isEmpty()
+            || txtCategoria.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Falta datos",
+                "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Libro objLibro = new Libro(
+                txtCodigo.getText(),
+                txtTitulo.getText(),
+                txtAutor.getText(),
+                txtEditorial.getText(),
+                Integer.parseInt(txtPublicacion.getText()),
+                txtCategoria.getText(),
+                chkEstado.isSelected()
+            );
+            LibroDAO.agregar(objLibro);
+            JOptionPane.showMessageDialog(this,
+                "Producto registrada en el sistema",
+                "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+            listado();
+            limpiar();
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
@@ -353,7 +380,50 @@ public class frmManLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTituloActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        // TODO add your handling code here:
+        if (!txtCodigo.getText().isEmpty()) {
+            String cadena = "¿Estas seguro de modificar el producto " + txtTitulo.getText() + "?";
+            int respuesta = Funciones.dialogoPregunta(cadena);
+
+            if (respuesta == JOptionPane.YES_OPTION) {
+                int pos = LibroDAO.posicion(txtCodigo.getText());
+
+                if (pos != -1) {
+                    Libro objLibro = new Libro(
+                        txtCodigo.getText(),
+                        txtTitulo.getText(),
+                        txtAutor.getText(),
+                        txtEditorial.getText(),
+                        Integer.parseInt(txtPublicacion.getText()),
+                        txtCategoria.getText(),
+                        chkEstado.isSelected()
+                    );
+
+                    LibroDAO.modificar(pos, objLibro);
+                    JOptionPane.showMessageDialog(
+                        this,
+                        "Producto Modificado",
+                        "Mensaje",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                    listado();
+                    limpiar();
+                } else {
+                    JOptionPane.showMessageDialog(
+                        this,
+                        "Producto no encontrado",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE
+                    );
+                }
+            } else {
+                JOptionPane.showMessageDialog(
+                    this,
+                    "Se requiere el codigo del producto",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+                );
+            }
+        }
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -365,10 +435,10 @@ public class frmManLibro extends javax.swing.JFrame {
                 if (respuesta == JOptionPane.YES_OPTION) {
                     LibroDAO.eliminar(pos);
                     JOptionPane.showMessageDialog(
-                            this,
-                            "Producto eliminado",
-                            "Mensaje",
-                            JOptionPane.INFORMATION_MESSAGE
+                        this,
+                        "Producto eliminado",
+                        "Mensaje",
+                        JOptionPane.INFORMATION_MESSAGE
                     );
                     listado();
                     limpiar();
@@ -377,49 +447,57 @@ public class frmManLibro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-   private void listado() {
-       String estado;
-       DefaultTableModel modelo = new DefaultTableModel();
-       modelo.addColumn("Codigo");
-       modelo.addColumn("Titulo");
-       modelo.addColumn("Autor");
-       modelo.addColumn("Editorial");
-       modelo.addColumn("Publicacion");
-       modelo.addColumn("Categoria");
-       modelo.addColumn("Estado");
-       
-       Libro[] datos = LibroDAO.obtener();
-       int cantidad = LibroDAO.getCantidad();
-       
-       for (int i = 0; i < cantidad; i++) {
-           Libro objLibro = datos[i];
-           
-           if (objLibro != null) {
-               estado = objLibro.isDisponible() ? "Disponible" : "No disponible";
-               modelo.addRow( new Object[] {
-                   objLibro.getId(),
-                   objLibro.getTitulo(),
-                   objLibro.getAutor(),
-                   objLibro.getEditorial(),
-                   objLibro.getApublicacion(),
-                   objLibro.getCategoria(),
-                   estado
-               });
-           }
-       }
-       tablaLibros.setModel(modelo);
-   }
-   
-   private void limpiar() {
-       txtCodigo.setText("");
-       txtTitulo.setText("");
-       txtAutor.setText("");
-       txtEditorial.setText("");
-       txtPublicacion.setText("");
-       txtCategoria.setText("");
-       chkEstado.setSelected(false);
-   }
- 
+    private void tablaLibrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaLibrosMouseClicked
+        int fila = tablaLibros.getSelectedRow();
+        String codigo = tablaLibros.getValueAt(fila, 0).toString();
+        txtCodigo.setText(codigo);
+
+        btnBuscarActionPerformed(null);
+    }//GEN-LAST:event_tablaLibrosMouseClicked
+
+    private void listado() {
+        String estado;
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Titulo");
+        modelo.addColumn("Autor");
+        modelo.addColumn("Editorial");
+        modelo.addColumn("Publicacion");
+        modelo.addColumn("Categoria");
+        modelo.addColumn("Estado");
+
+        Libro[] datos = LibroDAO.obtener();
+        int cantidad = LibroDAO.getCantidad();
+
+        for (int i = 0; i < cantidad; i++) {
+            Libro objLibro = datos[i];
+
+            if (objLibro != null) {
+                estado = objLibro.isDisponible() ? "Disponible" : "No disponible";
+                modelo.addRow(new Object[]{
+                    objLibro.getId(),
+                    objLibro.getTitulo(),
+                    objLibro.getAutor(),
+                    objLibro.getEditorial(),
+                    objLibro.getApublicacion(),
+                    objLibro.getCategoria(),
+                    estado
+                });
+            }
+        }
+        tablaLibros.setModel(modelo);
+    }
+
+    private void limpiar() {
+        txtCodigo.setText("");
+        txtTitulo.setText("");
+        txtAutor.setText("");
+        txtEditorial.setText("");
+        txtPublicacion.setText("");
+        txtCategoria.setText("");
+        chkEstado.setSelected(false);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JButton btnActualizar;
