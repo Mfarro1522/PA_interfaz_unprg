@@ -8,7 +8,7 @@ import CapaLogica.modelos.Libro;
  */
 public class LibroDAO {
 
-    private static final int MAX = 10;
+    private static final int MAX = 30;
     private static Libro[] libros = new Libro[MAX];
     private static int cantidad;
 
@@ -85,9 +85,10 @@ public class LibroDAO {
     }
     
     public static void eliminar(int pos) {
-        for (int i = 0; i < cantidad; i++) {
-            libros[pos] = libros[pos + i];
+        for (int i = pos; i < cantidad - 1; i++) {
+            libros[i] = libros[i + 1];
         }
+        libros[cantidad - 1] = null;
         cantidad--;
     }
     

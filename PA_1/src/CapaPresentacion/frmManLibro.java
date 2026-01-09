@@ -1,5 +1,11 @@
 package CapaPresentacion;
 
+import CapaDatos.LibroDAO;
+import CapaLogica.modelos.Libro;
+import Recursos.componentes.Funciones;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 
 
 /**
@@ -13,7 +19,7 @@ public class frmManLibro extends javax.swing.JFrame {
      */
     public frmManLibro() {
         initComponents();
-  
+        listado();
     }
 
     /**
@@ -35,13 +41,13 @@ public class frmManLibro extends javax.swing.JFrame {
         txtCodigo = new Recursos.componentes.RoundedTextField(15);
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtAñoPublicacion = new Recursos.componentes.RoundedTextField(15);
+        txtPublicacion = new Recursos.componentes.RoundedTextField(15);
         txtCategoria = new Recursos.componentes.RoundedTextField(15);
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtDisponibilidad = new Recursos.componentes.RoundedTextField(15);
+        txtEditorial = new Recursos.componentes.RoundedTextField(15);
         jLabel9 = new javax.swing.JLabel();
-        jCheckBox1 = new Recursos.componentes.ToggleSwitch();
+        chkEstado = new Recursos.componentes.ToggleSwitch();
         jPanel2 = new Recursos.componentes.RoundedPanel(20);
         btnRegistrar = new Recursos.componentes.RoundedButton(new java.awt.Color(84,73,229), new java.awt.Color(131,89,244), 20,0);
         btnActualizar = new Recursos.componentes.RoundedButton(new java.awt.Color(255,255,255), new java.awt.Color(255,255,255), 20,1);
@@ -51,7 +57,7 @@ public class frmManLibro extends javax.swing.JFrame {
         jScrollPane1 = jScrollPane1 = new Recursos.componentes.RoundedScrollPane(tablaLibros, 20);
         tablaLibros = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -75,9 +81,11 @@ public class frmManLibro extends javax.swing.JFrame {
 
         jLabel6.setText("Categoría");
 
-        jLabel7.setText("Disponibilidad");
+        jLabel7.setText("Estado");
 
         jLabel9.setText("Detalles de los Libros");
+
+        chkEstado.setText("Disponible");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -107,7 +115,7 @@ public class frmManLibro extends javax.swing.JFrame {
                                                 .addComponent(jLabel4)
                                                 .addGap(21, 21, 21)))
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtDisponibilidad)
+                                            .addComponent(txtEditorial)
                                             .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -121,10 +129,10 @@ public class frmManLibro extends javax.swing.JFrame {
                                         .addComponent(jLabel7)))
                                 .addGap(14, 14, 14)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAñoPublicacion)
+                                    .addComponent(txtPublicacion)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jCheckBox1)
+                                            .addComponent(chkEstado)
                                             .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -164,12 +172,12 @@ public class frmManLibro extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(txtDisponibilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)
-                            .addComponent(jCheckBox1)))
+                            .addComponent(chkEstado)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addComponent(txtAñoPublicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtPublicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -286,7 +294,7 @@ public class frmManLibro extends javax.swing.JFrame {
 
         Recursos.componentes.EstiloTablas.aplicarEstilo(tablaLibros);
 
-        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 910, 330));
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 910, 240));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -296,14 +304,44 @@ public class frmManLibro extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 791, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        if (txtCodigo.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Se requiere el codigo del libro",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        } else {
+            String codigo = txtCodigo.getText();
+            Libro objLibro = LibroDAO.getElemento(txtCodigo.getText());
+            
+            if (objLibro != null) {
+                txtCodigo.setText(objLibro.getId());
+                txtTitulo.setText(objLibro.getTitulo());
+                txtAutor.setText(objLibro.getAutor());
+                txtEditorial.setText(objLibro.getEditorial());
+                txtPublicacion.setText(String.valueOf(objLibro.getApublicacion()));
+                txtCategoria.setText(objLibro.getCategoria());
+                chkEstado.setSelected(objLibro.isDisponible());
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "No se encontro un libro con codigo " + codigo,
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE
+                );
+                limpiar();
+            }
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
@@ -319,18 +357,76 @@ public class frmManLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        if (!txtCodigo.getText().isEmpty()) {
+            int pos = LibroDAO.posicion(txtCodigo.getText());
+            if (pos != -1) {
+                String cadena = "¿Estas seguro de eliminar " + txtTitulo.getText() + "?";
+                int respuesta = Funciones.dialogoPregunta(cadena);
+                if (respuesta == JOptionPane.YES_OPTION) {
+                    LibroDAO.eliminar(pos);
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Producto eliminado",
+                            "Mensaje",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                    listado();
+                    limpiar();
+                }
+            }
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+   private void listado() {
+       String estado;
+       DefaultTableModel modelo = new DefaultTableModel();
+       modelo.addColumn("Codigo");
+       modelo.addColumn("Titulo");
+       modelo.addColumn("Autor");
+       modelo.addColumn("Editorial");
+       modelo.addColumn("Publicacion");
+       modelo.addColumn("Categoria");
+       modelo.addColumn("Estado");
+       
+       Libro[] datos = LibroDAO.obtener();
+       int cantidad = LibroDAO.getCantidad();
+       
+       for (int i = 0; i < cantidad; i++) {
+           Libro objLibro = datos[i];
+           
+           if (objLibro != null) {
+               estado = objLibro.isDisponible() ? "Disponible" : "No disponible";
+               modelo.addRow( new Object[] {
+                   objLibro.getId(),
+                   objLibro.getTitulo(),
+                   objLibro.getAutor(),
+                   objLibro.getEditorial(),
+                   objLibro.getApublicacion(),
+                   objLibro.getCategoria(),
+                   estado
+               });
+           }
+       }
+       tablaLibros.setModel(modelo);
+   }
    
-
+   private void limpiar() {
+       txtCodigo.setText("");
+       txtTitulo.setText("");
+       txtAutor.setText("");
+       txtEditorial.setText("");
+       txtPublicacion.setText("");
+       txtCategoria.setText("");
+       chkEstado.setSelected(false);
+   }
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox chkEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -345,10 +441,10 @@ public class frmManLibro extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaLibros;
     private javax.swing.JTextField txtAutor;
-    private javax.swing.JTextField txtAñoPublicacion;
     private javax.swing.JTextField txtCategoria;
     private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtDisponibilidad;
+    private javax.swing.JTextField txtEditorial;
+    private javax.swing.JTextField txtPublicacion;
     private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }
