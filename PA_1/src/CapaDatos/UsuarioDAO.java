@@ -9,7 +9,7 @@ import CapaLogica.modelos.Usuario;
  *
  * @author jackh
  */
-public abstract class UsuarioDAO implements IUsuarioDAO {
+public class UsuarioDAO implements IUsuarioDAO {
 
     private static final int MAX = 30;
     private static Usuario[] listaUsuarios = new Usuario[MAX];
@@ -30,7 +30,7 @@ public abstract class UsuarioDAO implements IUsuarioDAO {
         return true;
     }
 
-    {
+     {
         inicializarDatos();
     }
 
@@ -81,13 +81,9 @@ public abstract class UsuarioDAO implements IUsuarioDAO {
         return false;
     }
 
-    public boolean buscar(String id) {
-        for (int i = 0; i < contador; i++) {
-            if (listaUsuarios[i].getId().equalsIgnoreCase(id)) {
-                return true;
-            }
-        }
-        return false;
+    public static Usuario buscar(String id) {
+        int pos = posicion(id);
+        return (pos != -1) ? listaUsuarios[pos] : null;
     }
     
     @Override
@@ -135,17 +131,29 @@ public abstract class UsuarioDAO implements IUsuarioDAO {
         return filtrados;
     }
 
-    public int getCantidad() {
+    @Override
+    public int getCantidadActual() {
         return contador;
     }
+ 
+    @Override
+    public Usuario buscarPorId(String id) {
+        return buscar(id);
+    }
 
-    private boolean existeId(String id) {
+    public static int posicion(String id) {
+        int pos = -1;
         for (int i = 0; i < contador; i++) {
-            if (listaUsuarios[i].getId().equalsIgnoreCase(id)) {
-                return true;
+            if(listaUsuarios[i].getId().equalsIgnoreCase(id)) {
+                pos = i;
+                break;
             }
         }
-        return false;
+        return pos;
+    }
+    
+    private boolean existeId(String id) {
+        return posicion(id) != -1;
     }
 
     private boolean existeDni(String dni) {

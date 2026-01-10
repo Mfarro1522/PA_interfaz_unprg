@@ -66,7 +66,7 @@ public class LibroDAO {
     public static int posicion(String id) {
         int pos = -1;
         for (int i = 0; i < cantidad; i++) {
-            if (libros[i].getId().equals(id)) {
+            if (libros[i].getId().equalsIgnoreCase(id)) {
                 pos = i;
                 break;
             }

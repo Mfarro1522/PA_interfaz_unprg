@@ -9,7 +9,6 @@ import java.time.LocalDate;
  */
 public class PrestamoDAO {
 
-    public static UsuarioDAO objUsuario = new UsuarioDAO();
     private static final int MAX = 10;
     private static Prestamo[] prestamos = new Prestamo[MAX];
     private static int cantidad;
@@ -32,8 +31,8 @@ public class PrestamoDAO {
     private static void inicializarDatos() {
         agregar(new Prestamo(
             "P001",
-            LibroDAO.getElemento("0"),
-            objUsuario.buscar("2"),
+            LibroDAO.getElemento("L001"),
+            UsuarioDAO.buscar("2"),
             LocalDate.now().minusDays(3), // Hace 3 días
             null,
             true
@@ -41,8 +40,8 @@ public class PrestamoDAO {
 
         agregar(new Prestamo(
             "P002",
-            LibroDAO.getElemento("14"),
-            objUsuario.buscar("4"),
+            LibroDAO.getElemento("L014"),
+            UsuarioDAO.buscar("4"),
             LocalDate.now().minusDays(1), // Ayer
             null,
             true
@@ -50,8 +49,8 @@ public class PrestamoDAO {
 
         agregar(new Prestamo(
             "P003",
-            LibroDAO.getElemento("15"),
-            objUsuario.buscar("7"),
+            LibroDAO.getElemento("L015"),
+            UsuarioDAO.buscar("7"),
             LocalDate.now(), // Hoy
             null,
             true
@@ -59,8 +58,8 @@ public class PrestamoDAO {
 
         agregar(new Prestamo(
             "P004",
-            LibroDAO.getElemento("7"),
-            objUsuario.buscar("1"),
+            LibroDAO.getElemento("L07"),
+            UsuarioDAO.buscar("1"),
             LocalDate.now().minusDays(5), // Hace 5 días
             null,
             true
@@ -68,8 +67,8 @@ public class PrestamoDAO {
 
         agregar(new Prestamo(
             "P005",
-            LibroDAO.getElemento("23"),
-            objUsuario.buscar("5"),
+            LibroDAO.getElemento("L023"),
+            UsuarioDAO.buscar("5"),
             LocalDate.now().minusDays(2), // Hace 2 días
             null,
             true
@@ -106,9 +105,10 @@ public class PrestamoDAO {
     }
     
     public static void eliminar(int pos) {
-        for (int i = 0; i < cantidad; i++) {
-            prestamos[pos] = prestamos[pos + i];
+        for (int i = 0; i < cantidad - 1; i++) {
+            prestamos[i] = prestamos[i + 1];
         }
+        prestamos[cantidad - 1] = null;
         cantidad--;
     }
     
