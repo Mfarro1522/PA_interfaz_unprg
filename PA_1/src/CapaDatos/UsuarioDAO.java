@@ -4,47 +4,57 @@ import CapaLogica.modelos.Administrativo;
 import CapaLogica.modelos.Docente;
 import CapaLogica.modelos.Estudiante;
 import CapaLogica.modelos.Usuario;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author jackh
  */
-public class UsuarioDAO implements IUsuarioDAO {
+public abstract class UsuarioDAO implements IUsuarioDAO {
 
-    private static List<Usuario> listaUsuarios = new ArrayList<>();
+    private static final int MAX = 30;
+    private static Usuario[] listaUsuarios = new Usuario[MAX];
+    private static int contador = 0;
 
     @Override
     public boolean agregar(Usuario usuario) {
-        return listaUsuarios.add(usuario);
+        if (existeId(usuario.getId())) {
+            return false;
+        }
+
+        if (existeDni(usuario.getDni())) {
+            return false;
+        }
+        listaUsuarios[contador] = usuario;
+        contador++;
+
+        return true;
     }
 
-    static {
+    {
         inicializarDatos();
     }
 
-    private static void inicializarDatos() {
-        listaUsuarios.add(new Estudiante("1", "Ricardo Perez", "71234567", "EPICI"));
-        listaUsuarios.add(new Estudiante("2", "Gianluca Saenz", "72345678", "FACHSE"));
-        listaUsuarios.add(new Estudiante("3", "Christian Tunoque", "73456789", "FICSA"));
-        listaUsuarios.add(new Estudiante("4", "David Santamaria", "74567890", "FIQUIA"));
+    private void inicializarDatos() {
+        agregar(new Estudiante("1", "Ricardo Perez", "71234567", "EPICI"));
+        agregar(new Estudiante("2", "Gianluca Saenz", "72345678", "FACHSE"));
+        agregar(new Estudiante("3", "Christian Tunoque", "73456789", "FICSA"));
+        agregar(new Estudiante("4", "David Santamaria", "74567890", "FIQUIA"));
 
-        listaUsuarios.add(new Docente("5", "Dra. Giuliana Lecca", "01234567", "FACFYM"));
-        listaUsuarios.add(new Docente("6", "Dr. Roger Alarcon", "02345678", "FACFYM"));
-        listaUsuarios.add(new Docente("7", "Dr. Carlos Valdivia", "03456789", "FACFYM"));
-        listaUsuarios.add(new Docente("11", "Est. Fernando Carranza", "03456789", "ESTADISTICA"));
+        agregar(new Docente("5", "Dra. Giuliana Lecca", "01234567", "FACFYM"));
+        agregar(new Docente("6", "Dr. Roger Alarcon", "02345678", "FACFYM"));
+        agregar(new Docente("7", "Dr. Carlos Valdivia", "03456789", "FACFYM"));
+        agregar(new Docente("11", "Est. Fernando Carranza", "03456789", "ESTADISTICA"));
 
-        listaUsuarios.add(new Administrativo("8", "Luis Barrios", "45678901", "TI"));
-        listaUsuarios.add(new Administrativo("9", "Yoshimar Ok", "46789012", "TI"));
-        listaUsuarios.add(new Administrativo("10", "Pedro Reyes", "47890123", "TI"));
+        agregar(new Administrativo("8", "Luis Barrios", "45678901", "TI"));
+        agregar(new Administrativo("9", "Yoshimar Ok", "46789012", "TI"));
+        agregar(new Administrativo("10", "Pedro Reyes", "47890123", "TI"));
     }
 
     @Override
     public boolean actualizar(Usuario usuario) {
-        for (int i = 0; i < listaUsuarios.size(); i++) {
-            if (listaUsuarios.get(i).getId().equals(usuario.getId())) {
-                listaUsuarios.set(i, usuario);
+        for (int i = 0; i < contador; i++) {
+            if (listaUsuarios[i].getId().equalsIgnoreCase(usuario.getId())) {
+                listaUsuarios[i] = usuario;
                 return true;
             }
         }
@@ -53,34 +63,97 @@ public class UsuarioDAO implements IUsuarioDAO {
 
     @Override
     public boolean eliminar(String id) {
-        return listaUsuarios.removeIf(u -> u.getId().equals(id));
+        int posicion = -1;
+        for (int i = 0; i < contador; i++) {
+            if (listaUsuarios[i].getId().equalsIgnoreCase(id)) {
+                posicion = i;
+                break;
+            }
+        }
+        if (posicion != -1) {
+            for (int i = posicion; i < contador - 1; i++) {
+                listaUsuarios[i] = listaUsuarios[i + 1];
+            }
+            listaUsuarios[contador - 1] = null;
+            contador--;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean buscar(String id) {
+        for (int i = 0; i < contador; i++) {
+            if (listaUsuarios[i].getId().equalsIgnoreCase(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    @Override
+    public Usuario[] listarTodos() {
+        return listaUsuarios;
     }
 
     @Override
-    public Usuario buscar(String id) {
-        return listaUsuarios.stream()
-            .filter(u -> u.getId().equals(id))
-            .findFirst()
-            .orElse(null);
-    }
+    public Usuario[] listarPorTipo(String tipo) {
+        int totalCoincidencias = 0;
+        
+        for (int i = 0; i < contador; i++) {
+            boolean coincide = false;
+            if (tipo.equalsIgnoreCase("Estudiante") && listaUsuarios[i] instanceof Estudiante) {
+                coincide = true;
+            } else if (tipo.equalsIgnoreCase("Docente") && listaUsuarios[i] instanceof Docente) {
+                coincide = true;
+            } else if (tipo.equalsIgnoreCase("Administrativo") && listaUsuarios[i] instanceof Administrativo) {
+                coincide = true;
+            }
 
-    @Override
-    public List<Usuario> listarTodos() {
-        return new ArrayList<>(listaUsuarios);
-    }
-
-    @Override
-    public List<Usuario> listarPorTipo(String tipo) {
-        List<Usuario> filtrados = new ArrayList<>();
-        for (Usuario u : listaUsuarios) {
-            if (tipo.equalsIgnoreCase("Estudiante") && u instanceof Estudiante) {
-                filtrados.add(u);
-            } else if (tipo.equalsIgnoreCase("Docente") && u instanceof Docente) {
-                filtrados.add(u);
-            } else if (tipo.equalsIgnoreCase("Administrativo") && u instanceof Administrativo) {
-                filtrados.add(u);
+            if (coincide) {
+                totalCoincidencias++;
+            }
+        }
+        
+        Usuario[] filtrados = new Usuario[totalCoincidencias];
+        int indiceFiltrados = 0;
+        
+        for (int i = 0; i < contador; i++) {
+            boolean coincide = false;
+            if (tipo.equalsIgnoreCase("Estudiante") && listaUsuarios[i] instanceof Estudiante) {
+                coincide = true;
+            } else if (tipo.equalsIgnoreCase("Docente") && listaUsuarios[i] instanceof Docente) {
+                coincide = true;
+            } else if (tipo.equalsIgnoreCase("Administrativo") && listaUsuarios[i] instanceof Administrativo) {
+                coincide = true;
+            }
+            
+            if (coincide) {
+                filtrados[indiceFiltrados] = listaUsuarios[i];
+                indiceFiltrados++;
             }
         }
         return filtrados;
+    }
+
+    public int getCantidad() {
+        return contador;
+    }
+
+    private boolean existeId(String id) {
+        for (int i = 0; i < contador; i++) {
+            if (listaUsuarios[i].getId().equalsIgnoreCase(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean existeDni(String dni) {
+        for (int i = 0; i < contador; i++) {
+            if (listaUsuarios[i].getDni().equalsIgnoreCase(dni)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
