@@ -513,6 +513,9 @@ public class frMenu extends javax.swing.JFrame {
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
      
+        jdPrestamoLibros prestamoLibros = new jdPrestamoLibros();
+        prestamoLibros.setLocationRelativeTo(this);
+        prestamoLibros.setVisible(true);
         
     }//GEN-LAST:event_jPanel6MouseClicked
 

@@ -55,7 +55,7 @@ public class frmManLibro extends javax.swing.JFrame {
         jScrollPane1 = jScrollPane1 = new Recursos.componentes.RoundedScrollPane(tablaLibros, 20);
         tablaLibros = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
