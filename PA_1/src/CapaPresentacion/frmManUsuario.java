@@ -23,7 +23,7 @@ public class frmManUsuario extends javax.swing.JFrame {
     public frmManUsuario() {
         initComponents();
         DefaultTableModel modelo = new DefaultTableModel(
-            new String[]{"CODIGO", "NOMBRES", "DNI", "ROL", "FILA"}, 0
+            new String[]{"CODIGO", "NOMBRES", "DNI", "ROL", "FACULTAD"}, 0
         ) {
             @Override
             public boolean isCellEditable(int row, int column) {

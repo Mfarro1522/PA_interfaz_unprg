@@ -64,6 +64,23 @@ public class EstiloTablas {
     }
 
     /**
+     * Centra el texto de todas las columnas de la tabla.
+     * Llamar DESPUÉS de setModel() para que funcione correctamente.
+     * @param tabla El JTable a centrar
+     */
+    public static void centrarColumnas(JTable tabla) {
+        DefaultTableCellRenderer centrado = new DefaultTableCellRenderer();
+        centrado.setHorizontalAlignment(JLabel.CENTER);
+        for (int i = 0; i < tabla.getColumnCount(); i++) {
+            tabla.getColumnModel().getColumn(i).setCellRenderer(new BodyRenderer() {
+                {
+                    setHorizontalAlignment(JLabel.CENTER);
+                }
+            });
+        }
+    }
+
+    /**
      * Renderer para el encabezado de la tabla con esquinas redondeadas
      */
     public static class HeaderRenderer extends DefaultTableCellRenderer {
@@ -157,7 +174,7 @@ public class EstiloTablas {
                 c.setForeground(colorTexto);
             }
             
-            ((JComponent) c).setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY));
+            ((JComponent) c).setBorder(BorderFactory.createMatteBorder(0, 0, 1, 2, Color.WHITE));
             return c;
         }
     }
