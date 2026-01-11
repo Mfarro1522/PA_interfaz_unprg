@@ -11,7 +11,7 @@ public class PrestamoDAO {
 
     private static final int MAX = 10;
     private static Prestamo[] prestamos = new Prestamo[MAX];
-    private static int cantidad;
+    private static int cantidad = 0;
 
     public PrestamoDAO() {
         cantidad = 0;
@@ -58,7 +58,7 @@ public class PrestamoDAO {
 
         agregar(new Prestamo(
             "P004",
-            LibroDAO.getElemento("L07"),
+            LibroDAO.getElemento("L007"),
             UsuarioDAO.buscar("1"),
             LocalDate.now().minusDays(5), // Hace 5 días
             null,

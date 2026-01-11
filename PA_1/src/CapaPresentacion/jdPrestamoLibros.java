@@ -1,4 +1,9 @@
 package CapaPresentacion;
+
+import CapaDatos.PrestamoDAO;
+import CapaLogica.modelos.Prestamo;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Fernandez Logica | Farro UI
@@ -10,6 +15,7 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
      */
     public jdPrestamoLibros() {
         initComponents();
+        listado();
     }
 
     /**
@@ -56,9 +62,9 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -209,7 +215,34 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    private void listado() {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ID Libro");
+        modelo.addColumn("Titulo");
+        modelo.addColumn("Usuario");
+        modelo.addColumn("F Prestamo");
+        modelo.addColumn("F Devolucion");
+        modelo.addColumn("Estado");
+
+        Prestamo[] lista = PrestamoDAO.obtener();
+        int total = PrestamoDAO.getCantidad();
+
+        for (int i = 0; i < total; i++) {
+            Prestamo p = lista[i];
+
+            if (p != null && p.getLibro() != null && p.getUsuario() != null) {
+                modelo.addRow(new Object[]{
+                    p.getId(),
+                    p.getLibro().getTitulo(),
+                    p.getUsuario().getNombres(),
+                    p.getFechaSalida(),
+                    (p.getFechaDevolucion() == null) ? "Pendiente" : p.getFechaDevolucion(),
+                    (p.isEstado()) ? "Activo" : "Devuelto"
+                });
+            }
+        }
+        tblPrestamos.setModel(modelo);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarLibro;

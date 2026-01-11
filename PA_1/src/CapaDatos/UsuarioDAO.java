@@ -25,6 +25,10 @@ public class UsuarioDAO implements IUsuarioDAO {
     
     @Override
     public boolean agregar(Usuario usuario) {
+        return agregarStatic(usuario);
+    }
+    
+    private static boolean agregarStatic(Usuario usuario) {
         if (existeId(usuario.getId())) {
             return false;
         }
@@ -38,24 +42,24 @@ public class UsuarioDAO implements IUsuarioDAO {
         return true;
     }
 
-     {
+    static {
         inicializarDatos();
     }
 
-    private void inicializarDatos() {
-        agregar(new Estudiante("1", "Ricardo Perez", "71234567", "EPICI"));
-        agregar(new Estudiante("2", "Gianluca Saenz", "72345678", "FACHSE"));
-        agregar(new Estudiante("3", "Christian Tunoque", "73456789", "FICSA"));
-        agregar(new Estudiante("4", "David Santamaria", "74567890", "FIQUIA"));
+    private static void inicializarDatos() {
+        agregarStatic(new Estudiante("1", "Ricardo Perez", "71234567", "EPICI"));
+        agregarStatic(new Estudiante("2", "Gianluca Saenz", "72345678", "FACHSE"));
+        agregarStatic(new Estudiante("3", "Christian Tunoque", "73456789", "FICSA"));
+        agregarStatic(new Estudiante("4", "David Santamaria", "74567890", "FIQUIA"));
 
-        agregar(new Docente("5", "Dra. Giuliana Lecca", "01234567", "FACFYM"));
-        agregar(new Docente("6", "Dr. Roger Alarcon", "02345678", "FACFYM"));
-        agregar(new Docente("7", "Dr. Carlos Valdivia", "03456789", "FACFYM"));
-        agregar(new Docente("11", "Est. Fernando Carranza", "03456789", "ESTADISTICA"));
+        agregarStatic(new Docente("5", "Dra. Giuliana Lecca", "01234567", "FACFYM"));
+        agregarStatic(new Docente("6", "Dr. Roger Alarcon", "02345678", "FACFYM"));
+        agregarStatic(new Docente("7", "Dr. Carlos Valdivia", "03456789", "FACFYM"));
+        agregarStatic(new Docente("11", "Est. Fernando Carranza", "03456789", "ESTADISTICA"));
 
-        agregar(new Administrativo("8", "Luis Barrios", "45678901", "TI"));
-        agregar(new Administrativo("9", "Yoshimar Ok", "46789012", "TI"));
-        agregar(new Administrativo("10", "Pedro Reyes", "47890123", "TI"));
+        agregarStatic(new Administrativo("8", "Luis Barrios", "45678901", "TI"));
+        agregarStatic(new Administrativo("9", "Yoshimar Ok", "46789012", "TI"));
+        agregarStatic(new Administrativo("10", "Pedro Reyes", "47890123", "TI"));
     }
 
     @Override
@@ -160,11 +164,11 @@ public class UsuarioDAO implements IUsuarioDAO {
         return pos;
     }
     
-    private boolean existeId(String id) {
+    private static boolean existeId(String id) {
         return posicion(id) != -1;
     }
 
-    private boolean existeDni(String dni) {
+    private static boolean existeDni(String dni) {
         for (int i = 0; i < contador; i++) {
             if (listaUsuarios[i].getDni().equalsIgnoreCase(dni)) {
                 return true;
