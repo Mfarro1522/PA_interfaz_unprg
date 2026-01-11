@@ -34,7 +34,7 @@ public class PrestamoDAO {
             LibroDAO.getElemento("L001"),
             UsuarioDAO.buscar("2"),
             LocalDate.now().minusDays(3), // Hace 3 días
-            null,
+            LocalDate.now().plusDays(2),
             true
         ));
 
@@ -62,7 +62,7 @@ public class PrestamoDAO {
             UsuarioDAO.buscar("1"),
             LocalDate.now().minusDays(5), // Hace 5 días
             null,
-            true
+            false
         ));
 
         agregar(new Prestamo(
@@ -70,8 +70,8 @@ public class PrestamoDAO {
             LibroDAO.getElemento("L023"),
             UsuarioDAO.buscar("5"),
             LocalDate.now().minusDays(2), // Hace 2 días
-            null,
-            true
+            LocalDate.now().plusDays(5),
+            false
         ));
     }
 
