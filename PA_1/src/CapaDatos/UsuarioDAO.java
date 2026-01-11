@@ -14,7 +14,15 @@ public class UsuarioDAO implements IUsuarioDAO {
     private static final int MAX = 30;
     private static Usuario[] listaUsuarios = new Usuario[MAX];
     private static int contador = 0;
+    private static boolean inicializado = false;
 
+    public UsuarioDAO() {
+        if (!inicializado) {
+            inicializarDatos();
+            inicializado = true;
+        }
+    }
+    
     @Override
     public boolean agregar(Usuario usuario) {
         if (existeId(usuario.getId())) {
@@ -163,5 +171,18 @@ public class UsuarioDAO implements IUsuarioDAO {
             }
         }
         return false;
+    }
+
+    public static Usuario[] obtener() {
+        return listaUsuarios;
+    }
+    
+    public static int getCantidad() {
+        return contador;
+    }
+
+    public static Usuario getElemento(String id) {
+        int pos = posicion(id);
+        return (pos != -1) ? listaUsuarios[pos] : null;
     }
 }

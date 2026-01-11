@@ -8,7 +8,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author MELISSA
+ * @author Fernandez Logica || Farro UI
  */
 public class frmManLibro extends javax.swing.JFrame {
 
