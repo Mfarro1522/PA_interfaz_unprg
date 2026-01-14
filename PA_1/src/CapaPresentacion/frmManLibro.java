@@ -46,6 +46,8 @@ public class frmManLibro extends javax.swing.JFrame {
         txtEditorial = new Recursos.componentes.RoundedTextField(15);
         jLabel9 = new javax.swing.JLabel();
         chkEstado = new Recursos.componentes.ToggleSwitch();
+        jLabel10 = new javax.swing.JLabel();
+        txtCantidad = new Recursos.componentes.RoundedTextField(15);
         jPanel2 = new Recursos.componentes.GradientPanel(20);
         btnRegistrar = new Recursos.componentes.RoundedButton(new java.awt.Color(84,73,229), new java.awt.Color(131,89,244), 20,0);
         btnActualizar = new Recursos.componentes.RoundedButton(new java.awt.Color(255,255,255), new java.awt.Color(255,255,255), 20,1);
@@ -85,6 +87,8 @@ public class frmManLibro extends javax.swing.JFrame {
 
         chkEstado.setText("Disponible");
 
+        jLabel10.setText("Cantidad");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -100,21 +104,26 @@ public class frmManLibro extends javax.swing.JFrame {
                                 .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addGap(36, 36, 36)
-                                        .addComponent(txtAutor))
+                                        .addComponent(txtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                                 .addComponent(jLabel1)
-                                                .addGap(27, 27, 27))
+                                                .addGap(4, 4, 4))
                                             .addGroup(jPanel5Layout.createSequentialGroup()
                                                 .addComponent(jLabel4)
-                                                .addGap(21, 21, 21)))
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtEditorial)
-                                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addGap(0, 0, 0)))
+                                        .addGap(23, 23, 23)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtCantidad)))
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addGap(54, 54, 54)
@@ -136,7 +145,7 @@ public class frmManLibro extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel9)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,6 +185,10 @@ public class frmManLibro extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(txtPublicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -261,39 +274,15 @@ public class frmManLibro extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Titulo", "Autor", "Editorial", "Año Publ.", "Categoria", "disponible"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Boolean.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         tablaLibros.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaLibrosMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tablaLibros);
-        if (tablaLibros.getColumnModel().getColumnCount() > 0) {
-            tablaLibros.getColumnModel().getColumn(0).setResizable(false);
-            tablaLibros.getColumnModel().getColumn(1).setResizable(false);
-            tablaLibros.getColumnModel().getColumn(2).setResizable(false);
-            tablaLibros.getColumnModel().getColumn(3).setResizable(false);
-            tablaLibros.getColumnModel().getColumn(4).setResizable(false);
-            tablaLibros.getColumnModel().getColumn(5).setResizable(false);
-            tablaLibros.getColumnModel().getColumn(6).setResizable(false);
-        }
 
         Recursos.componentes.EstiloTablas.aplicarEstilo(tablaLibros);
 
@@ -335,6 +324,7 @@ public class frmManLibro extends javax.swing.JFrame {
                 txtPublicacion.setText(String.valueOf(objLibro.getApublicacion()));
                 txtCategoria.setText(objLibro.getCategoria());
                 chkEstado.setSelected(objLibro.isDisponible());
+                txtCantidad.setText(String.valueOf(objLibro.getCantidad()));
             } else {
                 JOptionPane.showMessageDialog(
                     this,
@@ -364,8 +354,9 @@ public class frmManLibro extends javax.swing.JFrame {
                 txtEditorial.getText(),
                 Integer.parseInt(txtPublicacion.getText()),
                 txtCategoria.getText(),
-                chkEstado.isSelected()
-            );
+                chkEstado.isSelected(),
+                Integer.parseInt(txtCantidad.getText()
+            ));
             LibroDAO.agregar(objLibro);
             JOptionPane.showMessageDialog(this,
                 "Producto registrada en el sistema",
@@ -395,8 +386,9 @@ public class frmManLibro extends javax.swing.JFrame {
                         txtEditorial.getText(),
                         Integer.parseInt(txtPublicacion.getText()),
                         txtCategoria.getText(),
-                        chkEstado.isSelected()
-                    );
+                        chkEstado.isSelected(),
+                        Integer.parseInt(txtCantidad.getText()
+                    ));
 
                     LibroDAO.modificar(pos, objLibro);
                     JOptionPane.showMessageDialog(
@@ -465,6 +457,7 @@ public class frmManLibro extends javax.swing.JFrame {
         modelo.addColumn("Publicacion");
         modelo.addColumn("Categoria");
         modelo.addColumn("Estado");
+        modelo.addColumn("Cantidad");
 
         Libro[] datos = LibroDAO.obtener();
         int cantidad = LibroDAO.getCantidad();
@@ -481,7 +474,8 @@ public class frmManLibro extends javax.swing.JFrame {
                     objLibro.getEditorial(),
                     objLibro.getApublicacion(),
                     objLibro.getCategoria(),
-                    estado
+                    estado,
+                    objLibro.getCantidad()
                 });
             }
         }
@@ -496,6 +490,7 @@ public class frmManLibro extends javax.swing.JFrame {
         txtPublicacion.setText("");
         txtCategoria.setText("");
         chkEstado.setSelected(false);
+        txtCantidad.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -506,6 +501,7 @@ public class frmManLibro extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JCheckBox chkEstado;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -519,6 +515,7 @@ public class frmManLibro extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaLibros;
     private javax.swing.JTextField txtAutor;
+    private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCategoria;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtEditorial;

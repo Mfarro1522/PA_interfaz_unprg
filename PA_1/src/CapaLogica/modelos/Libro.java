@@ -13,6 +13,7 @@ public class Libro {
     private int apublicacion;
     private String categoria;
     private boolean disponible;
+    private int cantidad;
 
     public Libro() {
         this.id = "";
@@ -22,9 +23,10 @@ public class Libro {
         this.apublicacion = 0;
         this.categoria = "";
         this.disponible = false;
+        this.cantidad = 0;
     }
     
-    public Libro(String codigo, String titulo, String autor, String editorial, int apublicacion, String categoria, boolean disponible) {
+    public Libro(String codigo, String titulo, String autor, String editorial, int apublicacion, String categoria, boolean disponible, int cantidad) {
         this.id = codigo;
         this.titulo = titulo;
         this.autor = autor;
@@ -32,6 +34,7 @@ public class Libro {
         this.apublicacion = apublicacion;
         this.categoria = categoria;
         this.disponible = disponible;
+        this.cantidad = cantidad;
     }
 
     public String getId() {
@@ -88,5 +91,13 @@ public class Libro {
 
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 }
