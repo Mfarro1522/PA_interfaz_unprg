@@ -12,12 +12,16 @@ import javax.swing.table.DefaultTableModel;
 public class jdAniadirLibro extends javax.swing.JDialog {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(jdAniadirLibro.class.getName());
+    private jdPrestamoLibros ventanaPadre;
 
     /**
      * Creates new form jdAniadirLibro
      */
     public jdAniadirLibro(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        if (parent instanceof jdPrestamoLibros) {
+            this.ventanaPadre = (jdPrestamoLibros) parent;
+        }
         initComponents();
         listado();
     }
@@ -37,6 +41,12 @@ public class jdAniadirLibro extends javax.swing.JDialog {
         tablaLIbros = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        txtTitulo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTituloKeyReleased(evt);
+            }
+        });
 
         tablaLIbros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -89,11 +99,20 @@ public class jdAniadirLibro extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tablaLIbrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaLIbrosMouseClicked
-        String cod = tablaLIbros.getValueAt(tablaLIbros.getSelectedRow(), 0).toString();
-        pasarDatos(cod);
-         
+        int fila = tablaLIbros.getSelectedRow();
         
+        if (fila != -1 && ventanaPadre != null) {
+            String idLibro = tablaLIbros.getValueAt(fila, 0).toString();
+            String tituloLibro = tablaLIbros.getValueAt(fila, 1).toString();
+            ventanaPadre.txtNombreLibro.setText(tituloLibro);
+            ventanaPadre.idLibroSeleccionado = idLibro;
+            this.dispose();
+        }
     }//GEN-LAST:event_tablaLIbrosMouseClicked
+
+    private void txtTituloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTituloKeyReleased
+        filtrarLibros();
+    }//GEN-LAST:event_txtTituloKeyReleased
 
     
 
@@ -132,6 +151,44 @@ public class jdAniadirLibro extends javax.swing.JDialog {
                     objLibro.getCategoria(),
                     estado
                 });
+            }
+        }
+        tablaLIbros.setModel(modelo);
+    }
+    
+    private void filtrarLibros() {
+        String filtro = txtTitulo.getText().toLowerCase().trim();
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Titulo");
+        modelo.addColumn("Autor");
+        modelo.addColumn("Editorial");
+        modelo.addColumn("Publicacion");
+        modelo.addColumn("Categoria");
+        modelo.addColumn("Estado");
+
+        Libro[] datos = LibroDAO.obtener();
+        int cantidad = LibroDAO.getCantidad();
+
+        for (int i = 0; i < cantidad; i++) {
+            Libro objLibro = datos[i];
+
+            if (objLibro != null) {
+                String titulo = objLibro.getTitulo().toLowerCase();
+                String autor = objLibro.getAutor().toLowerCase();
+                String estado = objLibro.isDisponible() ? "Disponible" : "No disponible";
+                
+                if (filtro.isEmpty() || titulo.contains(filtro) || autor.contains(filtro)) {
+                    modelo.addRow(new Object[]{
+                        objLibro.getId(),
+                        objLibro.getTitulo(),
+                        objLibro.getAutor(),
+                        objLibro.getEditorial(),
+                        objLibro.getApublicacion(),
+                        objLibro.getCategoria(),
+                        estado
+                    });
+                }
             }
         }
         tablaLIbros.setModel(modelo);

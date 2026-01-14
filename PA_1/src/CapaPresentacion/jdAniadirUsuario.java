@@ -13,12 +13,16 @@ import javax.swing.table.DefaultTableModel;
 public class jdAniadirUsuario extends javax.swing.JDialog {
     private int libro = 0;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(jdAniadirUsuario.class.getName());
+    private jdPrestamoLibros ventanaPadre;
 
     /**
      * Creates new form jdAniadirUsuario
      */
     public jdAniadirUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        if (parent instanceof jdPrestamoLibros) {
+            this.ventanaPadre = (jdPrestamoLibros) parent;
+        }
         initComponents();
         listarProductos();
     }
@@ -39,6 +43,12 @@ public class jdAniadirUsuario extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        txtCodUsr.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCodUsrKeyReleased(evt);
+            }
+        });
+
         tablaUsr.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -47,6 +57,11 @@ public class jdAniadirUsuario extends javax.swing.JDialog {
 
             }
         ));
+        tablaUsr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaUsrMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaUsr);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -84,6 +99,22 @@ public class jdAniadirUsuario extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tablaUsrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaUsrMouseClicked
+        int fila = tablaUsr.getSelectedRow();
+        
+        if (fila != -1 && ventanaPadre != null) {
+            String idUsuario = tablaUsr.getValueAt(fila, 0).toString();
+            String nombreUsuario = tablaUsr.getValueAt(fila, 1).toString();
+            ventanaPadre.txtNombreUsuario.setText(nombreUsuario);
+            ventanaPadre.idSeleccionado = idUsuario;
+            this.dispose();
+        }
+    }//GEN-LAST:event_tablaUsrMouseClicked
+
+    private void txtCodUsrKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodUsrKeyReleased
+        filtrarUsuarios();
+    }//GEN-LAST:event_txtCodUsrKeyReleased
+
     private void listarProductos() {
         String estado;
         
@@ -95,7 +126,7 @@ public class jdAniadirUsuario extends javax.swing.JDialog {
         modelo.addColumn("Rol");
         
         Usuario[] datos = UsuarioDAO.obtener();
-        int cantidad = LibroDAO.getCantidad();
+        int cantidad = UsuarioDAO.getCantidad();
         
         for (int i = 0; i < cantidad; i++) {
             Usuario objUsu = datos[i];
@@ -107,6 +138,37 @@ public class jdAniadirUsuario extends javax.swing.JDialog {
                     objUsu.getDni(),
                     objUsu.getRol()
                 });
+            }
+        }
+        tablaUsr.setModel(modelo);
+    }
+
+    private void filtrarUsuarios() {
+        String filtro = txtCodUsr.getText().toLowerCase().trim();
+        DefaultTableModel modelo = new DefaultTableModel();
+        
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Nombres");
+        modelo.addColumn("Dni");
+        modelo.addColumn("Rol");
+        
+        Usuario[] datos = UsuarioDAO.obtener();
+        int cantidad = UsuarioDAO.getCantidad();
+        
+        for (int i = 0; i < cantidad; i++) {
+            Usuario objUsu = datos[i];
+            
+            if (objUsu != null) {
+                String nombre = objUsu.getNombres().toLowerCase();
+                
+                if (filtro.isEmpty() || nombre.contains(filtro)) {
+                    modelo.addRow(new Object[] {
+                        objUsu.getId(),
+                        objUsu.getNombres(),
+                        objUsu.getDni(),
+                        objUsu.getRol()
+                    });
+                }
             }
         }
         tablaUsr.setModel(modelo);
