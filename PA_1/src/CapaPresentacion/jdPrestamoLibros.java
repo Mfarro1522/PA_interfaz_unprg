@@ -3,6 +3,8 @@ package CapaPresentacion;
 import CapaDatos.PrestamoDAO;
 import CapaLogica.modelos.Prestamo;
 import java.awt.Color;
+import java.awt.Frame;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -301,11 +303,16 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioMouseClicked
-        // TODO add your handling code here:
+    jdAniadirUsuario objAgregar = new jdAniadirUsuario((Frame) SwingUtilities.getWindowAncestor(this), true);
+    objAgregar.setLocationRelativeTo(this);
+    objAgregar.setVisible(true);
+
     }//GEN-LAST:event_btnBuscarUsuarioMouseClicked
 
     private void btnBuscarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarLibroMouseClicked
-        // TODO add your handling code here:
+    jdAniadirLibro objAgregar = new jdAniadirLibro((Frame) SwingUtilities.getWindowAncestor(this), true);
+    objAgregar.setLocationRelativeTo(this);
+    objAgregar.setVisible(true);
     }//GEN-LAST:event_btnBuscarLibroMouseClicked
 
     private void btnPrestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrestarActionPerformed
