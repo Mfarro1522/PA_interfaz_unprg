@@ -11,8 +11,11 @@ public class Main {
     public static void main(String[] args)  throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         
         //en linux para que el preview coincida con la ejecucion ; en el foco darle a aceptar todos los throws
-        UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
-         
+        try {
+            UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
+        }
+        
         frMenu menu = new frMenu();
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);

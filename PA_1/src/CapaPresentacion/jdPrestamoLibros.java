@@ -256,6 +256,11 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
 
             }
         ));
+        tblPrestamos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPrestamosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblPrestamos);
 
         Recursos.componentes.EstiloTablas.aplicarEstilo(tblPrestamos);
@@ -330,6 +335,10 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
     private void btnCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseClicked
        this.dispose();
     }//GEN-LAST:event_btnCancelarMouseClicked
+
+    private void tblPrestamosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPrestamosMouseClicked
+        
+    }//GEN-LAST:event_tblPrestamosMouseClicked
 
     private void listado() {
         DefaultTableModel modelo = new DefaultTableModel();
