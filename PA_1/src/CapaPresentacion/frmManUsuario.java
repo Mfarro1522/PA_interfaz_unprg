@@ -46,7 +46,7 @@ public class frmManUsuario extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel2 = new Recursos.componentes.GradientPanel(new java.awt.Color(245, 247, 252), new java.awt.Color(230, 235, 253));
-        jPanel1 = new Recursos.componentes.RoundedPanel(20);
+        jPanel1 = new Recursos.componentes.GradientPanel(30);
         jLabel1 = new javax.swing.JLabel();
         txtDni = new Recursos.componentes.RoundedTextField(15);
         jLabel4 = new javax.swing.JLabel();

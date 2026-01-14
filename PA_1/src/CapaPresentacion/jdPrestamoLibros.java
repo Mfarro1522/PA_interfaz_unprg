@@ -33,7 +33,7 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jPanel1 = new Recursos.componentes.GradientPanel(new java.awt.Color(245, 247, 252), new java.awt.Color(230, 235, 253));
         jPanel3 = new Recursos.componentes.GradientPanel(new java.awt.Color(240, 242, 247), new java.awt.Color(225, 230, 248));
-        jPanel2 =  new Recursos.componentes.RoundedPanel(20);
+        jPanel2 = new Recursos.componentes.GradientPanel(30);
         jLabel6 = new javax.swing.JLabel();
         txtFechaP = new Recursos.componentes.RoundedTextField(15);
         jLabel7 = new javax.swing.JLabel();
@@ -51,7 +51,7 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
         btnBuscarUsuario = new Recursos.componentes.CircularButton("/Recursos/Assets/buscar2.png");
         btnBuscarLibro = new Recursos.componentes.CircularButton("/Recursos/Assets/buscar2.png");
         jLabel1 = new javax.swing.JLabel();
-        jPanel4 =  new Recursos.componentes.RoundedPanel(20);
+        jPanel4 = new Recursos.componentes.GradientPanel(30);
         jScrollPane1 = jScrollPane1 = new Recursos.componentes.RoundedScrollPane(tblPrestamos, 20);
         tblPrestamos = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();

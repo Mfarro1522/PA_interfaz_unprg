@@ -30,7 +30,7 @@ public class frmManLibro extends javax.swing.JFrame {
     private void initComponents() {
 
         bg = new Recursos.componentes.GradientPanel(new java.awt.Color(245, 247, 252), new java.awt.Color(230, 235, 253));
-        jPanel5 = new Recursos.componentes.RoundedPanel(20);
+        jPanel5 = new Recursos.componentes.GradientPanel(20);
         txtTitulo = new Recursos.componentes.RoundedTextField(15);
         txtAutor = new Recursos.componentes.RoundedTextField(15);
         jLabel3 = new javax.swing.JLabel();
@@ -46,7 +46,7 @@ public class frmManLibro extends javax.swing.JFrame {
         txtEditorial = new Recursos.componentes.RoundedTextField(15);
         jLabel9 = new javax.swing.JLabel();
         chkEstado = new Recursos.componentes.ToggleSwitch();
-        jPanel2 = new Recursos.componentes.RoundedPanel(20);
+        jPanel2 = new Recursos.componentes.GradientPanel(20);
         btnRegistrar = new Recursos.componentes.RoundedButton(new java.awt.Color(84,73,229), new java.awt.Color(131,89,244), 20,0);
         btnActualizar = new Recursos.componentes.RoundedButton(new java.awt.Color(255,255,255), new java.awt.Color(255,255,255), 20,1);
         btnBuscar = new Recursos.componentes.RoundedButton(new java.awt.Color(255,255,255), new java.awt.Color(255,255,255), 20,1);
@@ -55,7 +55,7 @@ public class frmManLibro extends javax.swing.JFrame {
         jScrollPane1 = jScrollPane1 = new Recursos.componentes.RoundedScrollPane(tablaLibros, 20);
         tablaLibros = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
