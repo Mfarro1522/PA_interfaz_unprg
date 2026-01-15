@@ -43,7 +43,7 @@ public class PrestamoDAO {
             LibroDAO.getElemento("L014"),
             UsuarioDAO.buscar("4"),
             LocalDate.now().minusDays(1), // Ayer
-            null,
+            LocalDate.now().plusDays(7),
             true
         ));
 
@@ -51,8 +51,8 @@ public class PrestamoDAO {
             "P003",
             LibroDAO.getElemento("L015"),
             UsuarioDAO.buscar("7"),
-            LocalDate.now(), // Hoy
-            null,
+            LocalDate.now().minusDays(10), // Hoy
+            LocalDate.now().plusDays(5),
             true
         ));
 
@@ -61,7 +61,7 @@ public class PrestamoDAO {
             LibroDAO.getElemento("L007"),
             UsuarioDAO.buscar("1"),
             LocalDate.now().minusDays(5), // Hace 5 días
-            null,
+            LocalDate.now(),
             false
         ));
 
@@ -70,7 +70,7 @@ public class PrestamoDAO {
             LibroDAO.getElemento("L023"),
             UsuarioDAO.buscar("5"),
             LocalDate.now().minusDays(2), // Hace 2 días
-            LocalDate.now().plusDays(5),
+            LocalDate.now(),
             false
         ));
     }

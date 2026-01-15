@@ -363,8 +363,8 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
                     p.getLibro().getTitulo(),
                     p.getUsuario().getNombres(),
                     p.getFechaSalida(),
-                    (p.getFechaDevolucion() == null) ? "Pendiente" : p.getFechaDevolucion(),
-                    (p.isEstado()) ? "Activo" : "Devuelto"
+                    p.getFechaDevolucion(),
+                    (p.isEstado()) ? "Prestado" : "Devuelto"
                 });
             }
         }

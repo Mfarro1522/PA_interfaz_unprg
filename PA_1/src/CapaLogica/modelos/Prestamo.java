@@ -15,13 +15,13 @@ public class Prestamo {
     private LocalDate fechaDevolucion;
     private boolean estado;
 
-    public Prestamo(String id, Libro libro, Usuario usuario, LocalDate fechaSalida, LocalDate fechaDevolucion, boolean activo) {
+    public Prestamo(String id, Libro libro, Usuario usuario, LocalDate fechaSalida, LocalDate fechaDevolucion, boolean estado) {
         this.id = id;
         this.libro = libro;
         this.usuario = usuario;
         this.fechaSalida = fechaSalida;
-        this.fechaDevolucion = null;
-        this.estado = true;
+        this.fechaDevolucion = fechaDevolucion;
+        this.estado = estado;
     }
 
     public String getId() {
