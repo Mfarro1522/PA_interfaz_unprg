@@ -141,4 +141,20 @@ public class PrestamoDAO {
         }
         return datos;
     }
+    
+    public static int cantDevoluciones (){
+        
+        int cantDev = 0;
+        
+        for (int i = 0; i < cantidad; i++) {
+            if(prestamos[i].isEstado() == false){
+                cantDev++;
+            }
+        }
+        return cantDev;
+        
+    }
+    
+
+
 }

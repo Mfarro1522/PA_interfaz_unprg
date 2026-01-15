@@ -750,7 +750,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="94" green="38" red="38" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Libros Vencidos"/>
+                <Property name="text" type="java.lang.String" value="Devoluciones"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="txtTotalDevoluciones">

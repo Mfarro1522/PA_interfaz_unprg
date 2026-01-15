@@ -119,4 +119,15 @@ public class LibroDAO {
     int pos = posicion(id);
         return (pos != -1) ? libros[pos] : null;
     }
+    
+    public static int cantidadtotalLibros (){
+        
+        int canttot = 0;
+        
+        for (int i = 0; i < cantidad; i++) {
+            canttot +=libros[i].getCantidad();
+            
+        }
+        return canttot;
+    }
 }

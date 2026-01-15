@@ -359,7 +359,7 @@ public class frMenu extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(56, 56, 148));
-        jLabel17.setText("Libros Vencidos");
+        jLabel17.setText("Devoluciones");
 
         txtTotalDevoluciones.setFont(new java.awt.Font("Adwaita Mono", 1, 36)); // NOI18N
         txtTotalDevoluciones.setText("24");
@@ -670,10 +670,10 @@ public class frMenu extends javax.swing.JFrame {
     
     public void Estadisticas (){
         
-        txtTotalLibros.setText("" + LibroDAO.getCantidad());
+        txtTotalLibros.setText("" + LibroDAO.cantidadtotalLibros());
         txtTotalUsr.setText(""+UsuarioDAO.getCantidad());
-        txtTotalPrestamos.setText(""+PrestamoDAO.getCantidad());
-        txtTotalDevoluciones.setText(" ");
+        txtTotalPrestamos.setText(""+(PrestamoDAO.getCantidad()-PrestamoDAO.cantDevoluciones()));
+        txtTotalDevoluciones.setText(" "+PrestamoDAO.cantDevoluciones());
         
     }
 

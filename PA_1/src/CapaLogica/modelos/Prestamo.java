@@ -80,4 +80,5 @@ public class Prestamo {
         this.estado = false;
         this.libro.setDisponible(true);
     }
+    
 }
