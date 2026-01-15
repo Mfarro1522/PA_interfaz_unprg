@@ -11,7 +11,6 @@ import javax.swing.table.DefaultTableModel;
  * @author mauricio
  */
 public class jdAniadirUsuario extends javax.swing.JDialog {
-    private int libro = 0;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(jdAniadirUsuario.class.getName());
     private jdPrestamoLibros ventanaPadre;
 
@@ -43,6 +42,12 @@ public class jdAniadirUsuario extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        txtCodUsr.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCodUsrKeyReleased(evt);
+            }
+        });
+
         tablaUsr.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -51,6 +56,11 @@ public class jdAniadirUsuario extends javax.swing.JDialog {
 
             }
         ));
+        tablaUsr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaUsrMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaUsr);
 
         Recursos.componentes.EstiloTablas.aplicarEstilo(tablaUsr);

@@ -346,7 +346,7 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
             return;
         }
 
-        if (dateDevolucion.getDate().before(dateDevolucion.getDate())) {
+        if (dateDevolucion.getDate().before(fechaPrestamo.getDate())) {
             JOptionPane.showMessageDialog(this,
                 "La fecha de devolucion debe ser posterior a la fecha de préstamo",
                 "Validacion",
@@ -354,12 +354,12 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
             return;
         }
 
-        LocalDate fechaPrestamoLocal = convertirALocalDate(dateDevolucion.getDate());
-        LocalDate fechaDevolucionLocal = convertirALocalDate(fechaPrestamo.getDate());
+        LocalDate fechaPrestamoLocal = convertirALocalDate(fechaPrestamo.getDate());
+        LocalDate fechaDevolucionLocal = convertirALocalDate(dateDevolucion.getDate());
 
         boolean exito = BibliotecaService.registrarPrestamo(
             idSeleccionado,
-            idSeleccionado,
+            idLibroSeleccionado,
             fechaPrestamoLocal,
             fechaDevolucionLocal
         );
@@ -372,7 +372,8 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
 
             txtInfoUsr.setText("");
             txtNombreLibro.setText("");
-            fechaPrestamo.setDate(null);
+            dateDevolucion.setDate(null);
+            fechaPrestamo.setDate(new Date());
             idSeleccionado = "";
             idLibroSeleccionado = "";
 

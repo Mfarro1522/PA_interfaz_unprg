@@ -20,7 +20,7 @@ public class BibliotecaService {
             return false;
         }
 
-        Usuario usuario = UsuarioDAO.buscar(idLibro);
+        Usuario usuario = UsuarioDAO.buscar(idUsuario);
         if (usuario == null) {
             return false;
         }
@@ -52,7 +52,7 @@ public class BibliotecaService {
             return false;
         }
 
-        Libro libro = LibroDAO.buscarPorId(prestamo.getId());
+        Libro libro = prestamo.getLibro();
         if (libro == null) {
             return false;
         }
@@ -84,7 +84,7 @@ public class BibliotecaService {
             }
         }
         ultimoId++;
-        return String.format("P%02d", ultimoId);
+        return String.format("P%03d", ultimoId);
     }
 
 }

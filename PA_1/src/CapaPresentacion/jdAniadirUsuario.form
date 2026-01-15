@@ -65,6 +65,9 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="txtCodUsr">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCodUsrKeyReleased"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.RoundedTextField(15)"/>
           </AuxValues>
@@ -90,6 +93,9 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablaUsrMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -637,7 +637,7 @@ public class frMenu extends javax.swing.JFrame {
     
     public void Estadisticas (){
         
-        txtTotalLibros.setText(""+LibroDAO.getCantidad());
+        txtTotalLibros.setText("" + LibroDAO.getCantidad());
         txtTotalUsr.setText(""+UsuarioDAO.getCantidad());
         txtTotalPrestamos.setText(""+PrestamoDAO.getCantidad());
         txtTotalDevoluciones.setText(" ");

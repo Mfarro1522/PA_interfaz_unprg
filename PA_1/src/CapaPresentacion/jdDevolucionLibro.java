@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Fernandez Logica || Farro UI
  */
 public class jdDevolucionLibro extends javax.swing.JFrame {
-    public String idPrestamoSeleccionado = "";
+    public String idPrestamoActual = "";
 
     /**
      * Creates new form jdDevolcionLibro
@@ -269,10 +269,64 @@ public class jdDevolucionLibro extends javax.swing.JFrame {
         obj.setVisible(true);
     }//GEN-LAST:event_btnBuscarUsuarioMouseClicked
 
+    private void btnDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolverActionPerformed
+        // Validar que se haya buscado un préstamo
+        if (idPrestamoSeleccionado.getText().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, 
+                "Debe buscar un préstamo para devolver", 
+                "Validación", 
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        // Obtener el ID del préstamo desde la tabla de detalles
+        if (tablaDevoluciones1.getRowCount() == 0) {
+            javax.swing.JOptionPane.showMessageDialog(this, 
+                "No hay préstamo seleccionado", 
+                "Validación", 
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        String idPrestamo = tablaDevoluciones1.getValueAt(0, 0).toString();
+        
+        // Confirmar la devolución
+        int confirmacion = javax.swing.JOptionPane.showConfirmDialog(this, 
+            "¿Está seguro de registrar la devolución del libro?", 
+            "Confirmar devolución", 
+            javax.swing.JOptionPane.YES_NO_OPTION);
+        
+        if (confirmacion == javax.swing.JOptionPane.YES_OPTION) {
+            boolean exito = CapaLogica.Servicio.BibliotecaService.devolverPrestamo(idPrestamo);
+            
+            if (exito) {
+                javax.swing.JOptionPane.showMessageDialog(this, 
+                    "Devolución registrada exitosamente", 
+                    "Éxito", 
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                
+                // Limpiar campos
+                idPrestamoActual = "";
+                idPrestamoSeleccionado.setText("");
+                DefaultTableModel modeloVacio = new DefaultTableModel();
+                tablaDevoluciones1.setModel(modeloVacio);
+                
+                // Actualizar listado de devoluciones
+                listado();
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, 
+                    "Error al registrar la devolución. El préstamo ya fue devuelto o no existe.", 
+                    "Error", 
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnDevolverActionPerformed
+
     public void cargarPrestamo(String id) {
         Prestamo p = PrestamoDAO.getElemento(id);
         if (p != null) {
-            jTextField1.setText(p.getLibro().getTitulo());
+            idPrestamoActual = id;
+            idPrestamoSeleccionado.setText(p.getLibro().getTitulo());
             
             DefaultTableModel modelo = new DefaultTableModel();
             modelo.addColumn("ID");
