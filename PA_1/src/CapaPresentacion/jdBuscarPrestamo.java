@@ -123,12 +123,12 @@ public class jdBuscarPrestamo extends javax.swing.JDialog {
         modelo.addColumn("Fecha Salida");
         modelo.addColumn("Estado");
 
-        Prestamo[] datos = PrestamoDAO.obtener();
+        Prestamo[] lista = PrestamoDAO.obtener();
         int cantidad = PrestamoDAO.getCantidad();
 
         for (int i = 0; i < cantidad; i++) {
-            Prestamo p = datos[i];
-            if (p != null) {
+            Prestamo p = lista[i];
+            if (p != null && p.isEstado()) {
                 modelo.addRow(new Object[]{
                     p.getId(),
                     p.getLibro().getTitulo(),

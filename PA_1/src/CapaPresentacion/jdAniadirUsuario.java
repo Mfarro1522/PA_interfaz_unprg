@@ -1,7 +1,6 @@
 
 package CapaPresentacion;
 
-import CapaDatos.LibroDAO;
 import CapaDatos.UsuarioDAO;
 import CapaLogica.modelos.Usuario;
 import javax.swing.table.DefaultTableModel;
@@ -116,9 +115,7 @@ public class jdAniadirUsuario extends javax.swing.JDialog {
         filtrarUsuarios();
     }//GEN-LAST:event_txtCodUsrKeyReleased
 
-    private void listarProductos() {
-        String estado;
-        
+    private void listarProductos() {      
         DefaultTableModel modelo = new DefaultTableModel();
         
         modelo.addColumn("Codigo");
