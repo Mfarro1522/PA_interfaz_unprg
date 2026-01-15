@@ -10,9 +10,7 @@ import javax.swing.JOptionPane;
 public class jdLogin extends javax.swing.JDialog {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(jdLogin.class.getName());
-    
-    
-    
+
 
     /**
      * Creates new form jdLogin
@@ -40,7 +38,7 @@ public class jdLogin extends javax.swing.JDialog {
         jTextField1 = new Recursos.componentes.RoundedTextField("/Recursos/Assets/userlogo.png", "Escribe aquí...", 35);
         jLabel5 = new javax.swing.JLabel();
         jPasswordField1 = new Recursos.componentes.RoundedPasswordField("/Recursos/Assets/contralogo.png", 35);
-        btnIngresar = new Recursos.componentes.RoundedButton(new java.awt.Color(84,73,229), new java.awt.Color(131,89,244), 20,0)
+        btnIngresar = new Recursos.componentes.RoundedButton(new java.awt.Color(118,44,227), new java.awt.Color(118,44,227), 20,0)
         ;
         jLabel6 = new javax.swing.JLabel();
 

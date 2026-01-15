@@ -38,7 +38,7 @@ public class jdAniadirLibro extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         txtTitulo = new Recursos.componentes.RoundedTextField(15);
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaLIbros = new javax.swing.JTable();
+        tablaPrestamos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -48,7 +48,7 @@ public class jdAniadirLibro extends javax.swing.JDialog {
             }
         });
 
-        tablaLIbros.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPrestamos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -56,12 +56,12 @@ public class jdAniadirLibro extends javax.swing.JDialog {
 
             }
         ));
-        tablaLIbros.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablaPrestamos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaLIbrosMouseClicked(evt);
+                tablaPrestamosMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tablaLIbros);
+        jScrollPane1.setViewportView(tablaPrestamos);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,17 +98,17 @@ public class jdAniadirLibro extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tablaLIbrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaLIbrosMouseClicked
-        int fila = tablaLIbros.getSelectedRow();
+    private void tablaPrestamosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPrestamosMouseClicked
+        int fila = tablaPrestamos.getSelectedRow();
         
         if (fila != -1 && ventanaPadre != null) {
-            String idLibro = tablaLIbros.getValueAt(fila, 0).toString();
-            String tituloLibro = tablaLIbros.getValueAt(fila, 1).toString();
+            String idLibro = tablaPrestamos.getValueAt(fila, 0).toString();
+            String tituloLibro = tablaPrestamos.getValueAt(fila, 1).toString();
             ventanaPadre.txtNombreLibro.setText(tituloLibro);
             ventanaPadre.idLibroSeleccionado = idLibro;
             this.dispose();
         }
-    }//GEN-LAST:event_tablaLIbrosMouseClicked
+    }//GEN-LAST:event_tablaPrestamosMouseClicked
 
     private void txtTituloKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTituloKeyReleased
         filtrarLibros();
@@ -119,7 +119,7 @@ public class jdAniadirLibro extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tablaLIbros;
+    private javax.swing.JTable tablaPrestamos;
     private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 
@@ -153,7 +153,7 @@ public class jdAniadirLibro extends javax.swing.JDialog {
                 });
             }
         }
-        tablaLIbros.setModel(modelo);
+        tablaPrestamos.setModel(modelo);
     }
     
     private void filtrarLibros() {
@@ -191,7 +191,7 @@ public class jdAniadirLibro extends javax.swing.JDialog {
                 }
             }
         }
-        tablaLIbros.setModel(modelo);
+        tablaPrestamos.setModel(modelo);
     }
     
     

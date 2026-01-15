@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Fernandez Logica || Farro UI
  */
 public class jdDevolucionLibro extends javax.swing.JFrame {
+    public String idPrestamoSeleccionado = "";
 
     /**
      * Creates new form jdDevolcionLibro
@@ -106,6 +107,11 @@ public class jdDevolucionLibro extends javax.swing.JFrame {
         btnDevolver1.setText("Devolver");
 
         btnBuscarUsuario.setBackground(new java.awt.Color(51, 51, 255));
+        btnBuscarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarUsuarioMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btnBuscarUsuarioLayout = new javax.swing.GroupLayout(btnBuscarUsuario);
         btnBuscarUsuario.setLayout(btnBuscarUsuarioLayout);
@@ -252,6 +258,34 @@ public class jdDevolucionLibro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioMouseClicked
+        jdBuscarPrestamo obj = new jdBuscarPrestamo(this, true);
+        obj.setVisible(true);
+    }//GEN-LAST:event_btnBuscarUsuarioMouseClicked
+
+    public void cargarPrestamo(String id) {
+        Prestamo p = PrestamoDAO.getElemento(id);
+        if (p != null) {
+            jTextField1.setText(p.getLibro().getTitulo());
+            
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("ID");
+            modelo.addColumn("Libro");
+            modelo.addColumn("Usuario");
+            modelo.addColumn("Fecha Salida");
+            modelo.addColumn("F. Devolución");
+            
+            modelo.addRow(new Object[]{
+                p.getId(),
+                p.getLibro().getTitulo(),
+                p.getUsuario().getNombres(),
+                p.getFechaSalida(),
+                p.getFechaDevolucion()
+            });
+            tablaDevoluciones1.setModel(modelo);
+        }
+    }
 
     private void listado() {
         DefaultTableModel modelo = new DefaultTableModel();
