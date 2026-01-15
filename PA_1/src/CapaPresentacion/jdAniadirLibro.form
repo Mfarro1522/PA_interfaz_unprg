@@ -71,6 +71,8 @@
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.RoundedScrollPane(tablaPrestamos, 20)"/>
+            <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="Recursos.componentes.EstiloTablas.aplicarEstilo(tablaPrestamos);"/>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
 

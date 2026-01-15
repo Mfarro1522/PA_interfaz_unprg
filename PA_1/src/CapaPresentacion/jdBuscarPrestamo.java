@@ -36,8 +36,8 @@ public class jdBuscarPrestamo extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         txtCodUsr = new Recursos.componentes.RoundedTextField(15);
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaUsr = new javax.swing.JTable();
+        jScrollPane1 = new Recursos.componentes.RoundedScrollPane(tablaPrestamos, 20);
+        tablaPrestamos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -47,7 +47,7 @@ public class jdBuscarPrestamo extends javax.swing.JDialog {
             }
         });
 
-        tablaUsr.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPrestamos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -55,12 +55,14 @@ public class jdBuscarPrestamo extends javax.swing.JDialog {
 
             }
         ));
-        tablaUsr.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablaPrestamos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaUsrMouseClicked(evt);
+                tablaPrestamosMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tablaUsr);
+        jScrollPane1.setViewportView(tablaPrestamos);
+
+        Recursos.componentes.EstiloTablas.aplicarEstilo(tablaPrestamos);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -97,17 +99,17 @@ public class jdBuscarPrestamo extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tablaUsrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaUsrMouseClicked
-        int fila = tablaUsr.getSelectedRow();
+    private void tablaPrestamosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPrestamosMouseClicked
+        int fila = tablaPrestamos.getSelectedRow();
         if (fila != -1 && ventanaPadre != null) {
-            String idPrestamo = tablaUsr.getValueAt(fila, 0).toString();
-            String nombreLibro = tablaUsr.getValueAt(fila, 1).toString();
+            String idPrestamo = tablaPrestamos.getValueAt(fila, 0).toString();
+            String nombreLibro = tablaPrestamos.getValueAt(fila, 1).toString();
             
             ventanaPadre.idPrestamoSeleccionado = idPrestamo;
             ventanaPadre.cargarPrestamo(idPrestamo);
             this.dispose();
         }
-    }//GEN-LAST:event_tablaUsrMouseClicked
+    }//GEN-LAST:event_tablaPrestamosMouseClicked
 
     private void txtCodUsrKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodUsrKeyReleased
         filtrarPrestamos();
@@ -136,7 +138,7 @@ public class jdBuscarPrestamo extends javax.swing.JDialog {
                 });
             }
         }
-        tablaUsr.setModel(modelo);
+        tablaPrestamos.setModel(modelo);
     }
 
     private void filtrarPrestamos() {
@@ -169,7 +171,7 @@ public class jdBuscarPrestamo extends javax.swing.JDialog {
                 }
             }
         }
-        tablaUsr.setModel(modelo);
+        tablaPrestamos.setModel(modelo);
     }
 
     /**
@@ -212,7 +214,7 @@ public class jdBuscarPrestamo extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tablaUsr;
+    private javax.swing.JTable tablaPrestamos;
     private javax.swing.JTextField txtCodUsr;
     // End of variables declaration//GEN-END:variables
 }

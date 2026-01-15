@@ -36,18 +36,12 @@ public class jdAniadirUsuario extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new Recursos.componentes.GradientPanel(new java.awt.Color(245, 247, 252), new java.awt.Color(230, 235, 253));
         txtCodUsr = new Recursos.componentes.RoundedTextField(15);
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane1 = new Recursos.componentes.RoundedScrollPane(tablaUsr, 20);
         tablaUsr = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        txtCodUsr.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCodUsrKeyReleased(evt);
-            }
-        });
 
         tablaUsr.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,12 +51,9 @@ public class jdAniadirUsuario extends javax.swing.JDialog {
 
             }
         ));
-        tablaUsr.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaUsrMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(tablaUsr);
+
+        Recursos.componentes.EstiloTablas.aplicarEstilo(tablaUsr);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

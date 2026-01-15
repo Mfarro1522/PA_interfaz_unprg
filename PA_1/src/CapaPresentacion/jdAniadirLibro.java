@@ -37,7 +37,7 @@ public class jdAniadirLibro extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         txtTitulo = new Recursos.componentes.RoundedTextField(15);
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane1 = new Recursos.componentes.RoundedScrollPane(tablaPrestamos, 20);
         tablaPrestamos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -62,6 +62,8 @@ public class jdAniadirLibro extends javax.swing.JDialog {
             }
         });
         jScrollPane1.setViewportView(tablaPrestamos);
+
+        Recursos.componentes.EstiloTablas.aplicarEstilo(tablaPrestamos);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
