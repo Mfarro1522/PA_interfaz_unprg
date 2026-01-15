@@ -266,6 +266,7 @@ public class jdDevolucionLibro extends javax.swing.JFrame {
 
     private void btnBuscarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioMouseClicked
         jdBuscarPrestamo obj = new jdBuscarPrestamo(this, true);
+        obj.setLocationRelativeTo(this);
         obj.setVisible(true);
     }//GEN-LAST:event_btnBuscarUsuarioMouseClicked
 

@@ -35,7 +35,7 @@ public class jdAniadirLibro extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new Recursos.componentes.GradientPanel(new java.awt.Color(245, 247, 252), new java.awt.Color(230, 235, 253));
         txtTitulo = new Recursos.componentes.RoundedTextField(15);
         jScrollPane1 = new Recursos.componentes.RoundedScrollPane(tablaPrestamos, 20);
         tablaPrestamos = new javax.swing.JTable();
