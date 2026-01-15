@@ -37,9 +37,9 @@ public class jdDevolucionLibro extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new Recursos.componentes.RoundedTextField(15);
+        idPrestamoSeleccionado = new Recursos.componentes.RoundedTextField(15);
         jLabel4 = new javax.swing.JLabel();
-        btnDevolver1 = new Recursos.componentes.RoundedButton(new java.awt.Color(84,73,229), new java.awt.Color(131,89,244), 20,0)
+        btnDevolver = new Recursos.componentes.RoundedButton(new java.awt.Color(84,73,229), new java.awt.Color(131,89,244), 20,0)
         ;
         btnBuscarUsuario = new Recursos.componentes.CircularButton("/Recursos/Assets/buscar2.png");
         btnBuscarUsuario1 = new Recursos.componentes.CircularButton("/Recursos/Assets/limpiar.png");
@@ -101,10 +101,15 @@ public class jdDevolucionLibro extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Adwaita Sans", 0, 12)); // NOI18N
         jLabel4.setText("Nombre Libro");
 
-        btnDevolver1.setBackground(new java.awt.Color(51, 0, 255));
-        btnDevolver1.setForeground(new java.awt.Color(255, 255, 255));
-        btnDevolver1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Assets/devolver.png"))); // NOI18N
-        btnDevolver1.setText("Devolver");
+        btnDevolver.setBackground(new java.awt.Color(51, 0, 255));
+        btnDevolver.setForeground(new java.awt.Color(255, 255, 255));
+        btnDevolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Assets/devolver.png"))); // NOI18N
+        btnDevolver.setText("Devolver");
+        btnDevolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDevolverActionPerformed(evt);
+            }
+        });
 
         btnBuscarUsuario.setBackground(new java.awt.Color(51, 51, 255));
         btnBuscarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -162,11 +167,11 @@ public class jdDevolucionLibro extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(idPrestamoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnDevolver1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel4)
@@ -182,9 +187,9 @@ public class jdDevolucionLibro extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnDevolver1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDevolver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField1)
+                        .addComponent(idPrestamoSeleccionado)
                         .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -286,7 +291,7 @@ public class jdDevolucionLibro extends javax.swing.JFrame {
             tablaDevoluciones1.setModel(modelo);
         }
     }
-
+    
     private void listado() {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
@@ -321,7 +326,8 @@ public class jdDevolucionLibro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnBuscarUsuario;
     private javax.swing.JPanel btnBuscarUsuario1;
-    private javax.swing.JButton btnDevolver1;
+    private javax.swing.JButton btnDevolver;
+    public javax.swing.JTextField idPrestamoSeleccionado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -335,7 +341,6 @@ public class jdDevolucionLibro extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tablaDevoluciones;
     private javax.swing.JTable tablaDevoluciones1;
     // End of variables declaration//GEN-END:variables

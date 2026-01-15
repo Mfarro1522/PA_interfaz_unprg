@@ -17,11 +17,13 @@ public class PrestamoDAO {
         cantidad = 0;
     }
 
-    public static void agregar(Prestamo objPrestamo) {
+    public static boolean agregar(Prestamo objPrestamo) {
         if (cantidad < MAX) {
             prestamos[cantidad] = objPrestamo;
             cantidad++;
+            return true;
         }
+        return false;
     }
 
     static {
@@ -78,11 +80,11 @@ public class PrestamoDAO {
     public static Prestamo[] obtener() {
         return prestamos;
     }
-    
+
     public static int getCantidad() {
         return cantidad;
     }
-    
+
     public static int posicion(String id) {
         int pos = -1;
         for (int i = 0; i < cantidad; i++) {
@@ -93,17 +95,17 @@ public class PrestamoDAO {
         }
         return pos;
     }
-    
+
     public static Prestamo getElemento(String id) {
         int pos = posicion(id);
         return (pos != -1) ? prestamos[pos] : null;
     }
-    
+
     public static void darBaja(String idl) {
         int id = Integer.parseInt(idl);
         prestamos[id].setEstado(false);
     }
-    
+
     public static void eliminar(int pos) {
         for (int i = 0; i < cantidad - 1; i++) {
             prestamos[i] = prestamos[i + 1];
@@ -111,20 +113,26 @@ public class PrestamoDAO {
         prestamos[cantidad - 1] = null;
         cantidad--;
     }
-    
-    public static void modificar(int pos, Prestamo objPrestamo) {
-        prestamos[pos] = objPrestamo;
+
+    public static boolean modificar(int pos, Prestamo objPrestamo) {
+        if (pos >= 0 && pos < cantidad) {
+            prestamos[pos] = objPrestamo;
+            return true;
+        }
+        return false;
     }
-    
+
     public static Prestamo[] prestamosPorEstado(boolean estado) {
         int cantreg = 0;
         for (int i = 0; i < cantidad; i++) {
-            if (prestamos[i].isEstado() == estado) cantreg++;
+            if (prestamos[i].isEstado() == estado) {
+                cantreg++;
+            }
         }
-        
+
         Prestamo[] datos = new Prestamo[cantreg];
-        int c=0;
-        
+        int c = 0;
+
         for (int i = 0; i < cantidad; i++) {
             if (prestamos[i].isEstado() == estado) {
                 datos[c] = prestamos[i];

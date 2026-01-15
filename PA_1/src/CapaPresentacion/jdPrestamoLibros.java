@@ -1,8 +1,13 @@
 package CapaPresentacion;
 
 import CapaDatos.PrestamoDAO;
+import CapaLogica.Servicio.BibliotecaService;
 import CapaLogica.modelos.Prestamo;
 import java.awt.Color;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,6 +26,8 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
     public jdPrestamoLibros() {
         initComponents();
         listado();
+        fechaPrestamo.setDate(new Date());
+        fechaPrestamo.setEnabled(false);
     }
 
     /**
@@ -40,7 +47,7 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtNombreUsuario = new Recursos.componentes.RoundedTextField(15);
+        txtInfoUsr = new Recursos.componentes.RoundedTextField(15);
         jLabel4 = new javax.swing.JLabel();
         txtNombreLibro = new Recursos.componentes.RoundedTextField(15);
         dateDevolucion = new com.toedter.calendar.JDateChooser();
@@ -51,7 +58,7 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JLabel();
         btnBuscarUsuario = new Recursos.componentes.CircularButton("/Recursos/Assets/buscar2.png");
         btnBuscarLibro = new Recursos.componentes.CircularButton("/Recursos/Assets/buscar2.png");
-        dateDevolucion1 = new com.toedter.calendar.JDateChooser();
+        fechaPrestamo = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new Recursos.componentes.GradientPanel(30);
         jScrollPane1 = jScrollPane1 = new Recursos.componentes.RoundedScrollPane(tblPrestamos, 20);
@@ -162,10 +169,6 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCancelar)
-                .addGap(99, 99, 99))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnPrestar, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,19 +188,23 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addComponent(jLabel4)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtInfoUsr, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGap(16, 16, 16)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(dateDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
+                                .addComponent(fechaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(23, 23, 23)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(dateDevolucion1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(dateDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(10, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCancelar)
+                .addGap(99, 99, 99))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +217,7 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombreUsuario)
+                            .addComponent(txtInfoUsr)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(105, 105, 105)
@@ -230,11 +237,11 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dateDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dateDevolucion1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                    .addComponent(fechaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
                 .addComponent(btnPrestar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCancelar)
@@ -323,8 +330,69 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarLibroMouseClicked
 
     private void btnPrestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrestarActionPerformed
-        // TODO add your handling code here:
+        if (idSeleccionado.isEmpty() || idLibroSeleccionado.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                "Debe seleccionar un usuario y un libro",
+                "Validacion",
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        if (dateDevolucion.getDate() == null) {
+            JOptionPane.showMessageDialog(this,
+                "Debe seleccionar la fecha de devolucion",
+                "Validacion",
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        if (dateDevolucion.getDate().before(dateDevolucion.getDate())) {
+            JOptionPane.showMessageDialog(this,
+                "La fecha de devolucion debe ser posterior a la fecha de préstamo",
+                "Validacion",
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        LocalDate fechaPrestamoLocal = convertirALocalDate(dateDevolucion.getDate());
+        LocalDate fechaDevolucionLocal = convertirALocalDate(fechaPrestamo.getDate());
+
+        boolean exito = BibliotecaService.registrarPrestamo(
+            idSeleccionado,
+            idSeleccionado,
+            fechaPrestamoLocal,
+            fechaDevolucionLocal
+        );
+
+        if (exito) {
+            JOptionPane.showMessageDialog(this,
+                "Préstamo registrado exitosamente",
+                "Éxito",
+                javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+            txtInfoUsr.setText("");
+            txtNombreLibro.setText("");
+            fechaPrestamo.setDate(null);
+            idSeleccionado = "";
+            idLibroSeleccionado = "";
+
+            listado();
+        } else {
+            JOptionPane.showMessageDialog(this,
+                "Error al registrar el préstamo. Verifique la disponibilidad del libro",
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnPrestarActionPerformed
+
+    private LocalDate convertirALocalDate(Date date) {
+        if (date == null) {
+            return null;
+        }
+        return date.toInstant()
+            .atZone(ZoneId.systemDefault())
+            .toLocalDate();
+    }
 
     private void btnCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseEntered
         btnCancelar.setForeground(new Color(0, 0, 204));
@@ -387,7 +455,7 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
     private javax.swing.JLabel btnCancelar;
     private javax.swing.JButton btnPrestar;
     private com.toedter.calendar.JDateChooser dateDevolucion;
-    private com.toedter.calendar.JDateChooser dateDevolucion1;
+    private com.toedter.calendar.JDateChooser fechaPrestamo;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -404,7 +472,7 @@ public class jdPrestamoLibros extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblPrestamos;
+    public javax.swing.JTextField txtInfoUsr;
     public javax.swing.JTextField txtNombreLibro;
-    public javax.swing.JTextField txtNombreUsuario;
     // End of variables declaration//GEN-END:variables
 }

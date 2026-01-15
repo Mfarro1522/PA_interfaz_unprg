@@ -1,4 +1,3 @@
-
 package CapaLogica.modelos;
 
 import java.time.LocalDate;
@@ -8,12 +7,16 @@ import java.time.LocalDate;
  * @author jackh
  */
 public class Prestamo {
+
     private String id;
     private Libro libro;
     private Usuario usuario;
     private LocalDate fechaSalida;
     private LocalDate fechaDevolucion;
     private boolean estado;
+
+    public Prestamo() {
+    }
 
     public Prestamo(String id, Libro libro, Usuario usuario, LocalDate fechaSalida, LocalDate fechaDevolucion, boolean estado) {
         this.id = id;
@@ -71,7 +74,7 @@ public class Prestamo {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-    
+
     public void finalizarPrestamo() {
         this.fechaDevolucion = LocalDate.now();
         this.estado = false;

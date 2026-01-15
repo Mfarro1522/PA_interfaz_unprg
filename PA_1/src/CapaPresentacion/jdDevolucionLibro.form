@@ -198,11 +198,11 @@
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jTextField1" min="-2" pref="138" max="-2" attributes="0"/>
+                                          <Component id="idPrestamoSeleccionado" min="-2" pref="138" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="btnBuscarUsuario" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="btnDevolver1" min="-2" pref="215" max="-2" attributes="0"/>
+                                          <Component id="btnDevolver" min="-2" pref="215" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -226,9 +226,9 @@
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnDevolver1" alignment="1" max="32767" attributes="0"/>
+                              <Component id="btnDevolver" alignment="1" max="32767" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextField1" max="32767" attributes="0"/>
+                                  <Component id="idPrestamoSeleccionado" max="32767" attributes="0"/>
                                   <Component id="btnBuscarUsuario" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -255,7 +255,7 @@
                     <Property name="text" type="java.lang.String" value="Detalles de la devolucion"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="idPrestamoSeleccionado">
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.RoundedTextField(15)"/>
                   </AuxValues>
@@ -268,7 +268,7 @@
                     <Property name="text" type="java.lang.String" value="Nombre Libro"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnDevolver1">
+                <Component class="javax.swing.JButton" name="btnDevolver">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="0" red="33" type="rgb"/>
@@ -281,6 +281,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Devolver"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDevolverActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Recursos.componentes.RoundedButton(new java.awt.Color(84,73,229), new java.awt.Color(131,89,244), 20,0)&#xa;"/>
                   </AuxValues>

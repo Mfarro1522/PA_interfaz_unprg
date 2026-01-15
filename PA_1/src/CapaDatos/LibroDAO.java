@@ -114,4 +114,9 @@ public class LibroDAO {
         }
         return datos;
     }
+    
+    public static Libro buscarPorId(String id){
+    int pos = posicion(id);
+        return (pos != -1) ? libros[pos] : null;
+    }
 }

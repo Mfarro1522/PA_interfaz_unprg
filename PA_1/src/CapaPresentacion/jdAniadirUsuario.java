@@ -96,7 +96,7 @@ public class jdAniadirUsuario extends javax.swing.JDialog {
         if (fila != -1 && ventanaPadre != null) {
             String idUsuario = tablaUsr.getValueAt(fila, 0).toString();
             String nombreUsuario = tablaUsr.getValueAt(fila, 1).toString();
-            ventanaPadre.txtNombreUsuario.setText(nombreUsuario);
+            ventanaPadre.txtInfoUsr.setText(nombreUsuario);
             ventanaPadre.idSeleccionado = idUsuario;
             this.dispose();
         }
