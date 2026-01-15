@@ -216,8 +216,8 @@ PA_1/
 │   │   ├── LibroDAO.java                # DAO de Libros
 │   │   └── PrestamoDAO.java             # DAO de Préstamos
 │   │
-│   ├── 📁 CapaLogica/                   # Capa de Lógica de Negocio
-│   │   ├── 📁 modelos/                  # Modelos de Dominio (POJOs)
+│   ├── 📁 CapaLogica/                  # Capa de Lógica de Negocio
+│   │   ├── 📁 modelos/                 # Modelos de Dominio (POJOs)
 │   │   │   ├── Usuario.java            # Clase abstracta base
 │   │   │   ├── Estudiante.java         # Usuario tipo Estudiante
 │   │   │   ├── Docente.java            # Usuario tipo Docente
@@ -225,8 +225,8 @@ PA_1/
 │   │   │   ├── Libro.java              # Modelo Libro
 │   │   │   └── Prestamo.java           # Modelo Préstamo
 │   │   │
-│   │   └── 📁 Servicio/                 # Servicios de Negocio
-│   │       └── BibliotecaService.java   # Lógica de préstamos
+│   │   └── 📁 Servicio/                # Servicios de Negocio
+│   │       └── BibliotecaService.java  # Lógica de préstamos
 │   │
 │   ├── 📁 CapaPresentacion/             # Capa de Presentación (UI)
 │   │   ├── Main.java                    # Punto de entrada
@@ -622,14 +622,14 @@ Antes de implementar un feature grande:
 
 ### 5. Buenas Prácticas
 
-✅ **DO**:
+✅ **HACER**:
 - Haz commits pequeños y frecuentes
 - Escribe mensajes de commit descriptivos
 - Prueba tu código antes de hacer push
 - Mantén tu fork actualizado con upstream
 - Respeta el estilo de código existente
 
-❌ **DON'T**:
+❌ **NO HACER**:
 - No hagas commits de archivos compilados (`build/`, `.class`)
 - No incluyas configuraciones locales de IDE
 - No cambies múltiples cosas no relacionadas en un PR
@@ -740,10 +740,8 @@ Antes de implementar un feature grande:
 Este proyecto fue desarrollado como parte del curso de Programación Avanzada en la Universidad Nacional Pedro Ruiz Gallo (UNPRG).
 
 **Desarrolladores**:
-- **Mauricio** - Lógica de negocio y arquitectura
-- **Fernandez** - Lógica de aplicación y servicios
-- **Farro** - Diseño UI/UX e interfaces
-- **Jack** - Modelos de datos y DAOs
+- **Fernandez** - Modelos de datos y DAOs, servicios y arquitectura
+- **Farro** - Diseño UI/UX, interfaces y estadisticas
 
 ### Recursos y Bibliotecas
 
