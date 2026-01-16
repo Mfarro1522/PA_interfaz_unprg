@@ -4,12 +4,15 @@ import CapaDatos.LibroDAO;
 import CapaDatos.PrestamoDAO;
 import CapaDatos.UsuarioDAO;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
 /**
  *
  * @author mauricio
  */
 public class frMenu extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frMenu.class.getName());
 
     /**
@@ -19,15 +22,10 @@ public class frMenu extends javax.swing.JFrame {
         initComponents();
         fechaHoy();
         Estadisticas();
-        
-        
-        
+
         jdLogin login = new jdLogin(this, true);
         login.setLocationRelativeTo(this);
         login.setVisible(true);
-        
-        
-        
     }
 
     /**
@@ -114,15 +112,15 @@ public class frMenu extends javax.swing.JFrame {
 
         jLabel19.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel19.setText("® Grupo 4 no se ps  v 1.02 | Todos los derechos reservados");
+        jLabel19.setText("® Grupo 4 no se ps  V 0.9.0.1 | Todos los derechos reservados - UNPRG");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(559, Short.MAX_VALUE)
-                .addComponent(jLabel19)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
         jPanel3Layout.setVerticalGroup(
@@ -139,7 +137,7 @@ public class frMenu extends javax.swing.JFrame {
 
         txtFechaHoy.setFont(new java.awt.Font("Adwaita Mono", 1, 13)); // NOI18N
         txtFechaHoy.setForeground(new java.awt.Color(102, 102, 102));
-        txtFechaHoy.setText("Fecha de hoy (no muevas)");
+        txtFechaHoy.setText("Fecha");
 
         btnManUsr.setBackground(new java.awt.Color(255, 255, 255));
         btnManUsr.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -381,7 +379,7 @@ public class frMenu extends javax.swing.JFrame {
                                 .addComponent(jLabel20)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(0, 5, Short.MAX_VALUE)
                                 .addComponent(jLabel17)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -431,57 +429,59 @@ public class frMenu extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtFechaHoy))
-                                .addComponent(jLabel1)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnSobreNosotros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(20, 20, 20)
-                                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(19, 19, 19)
-                                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(20, 20, 20)
-                                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(15, 15, 15)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
+                        .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnManLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(80, 80, 80)
-                                .addComponent(btnManUsr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(90, 90, 90)
-                                .addComponent(btnPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(90, 90, 90)
-                                .addComponent(btnDevoluciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(65, 65, 65)
-                                .addComponent(jLabel4)
-                                .addGap(80, 80, 80)
-                                .addComponent(jLabel5)
-                                .addGap(132, 132, 132)
-                                .addComponent(jLabel6))
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtFechaHoy, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSobreNosotros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(95, 95, 95)
-                                .addComponent(jLabel8)
-                                .addGap(117, 117, 117)
-                                .addComponent(jLabel9)
-                                .addGap(127, 127, 127)
-                                .addComponent(jLabel10)))))
+                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19)
+                                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(15, 15, 15)))
+                .addGap(124, 124, 124))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnManLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addComponent(btnManUsr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90)
+                        .addComponent(btnPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90)
+                        .addComponent(btnDevoluciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel4)
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel5)
+                        .addGap(132, 132, 132)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(95, 95, 95)
+                        .addComponent(jLabel8)
+                        .addGap(117, 117, 117)
+                        .addComponent(jLabel9)
+                        .addGap(127, 127, 127)
+                        .addComponent(jLabel10)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -544,48 +544,47 @@ public class frMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManLibroMouseClicked
-     
-        frmManLibro manlibro =  new frmManLibro();
+       frmManLibro manlibro = new frmManLibro();
         manlibro.setLocationRelativeTo(this);
         manlibro.setVisible(true);
-        
-        
     }//GEN-LAST:event_btnManLibroMouseClicked
 
     private void btnManUsrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManUsrMouseClicked
-
-        frmManUsuario manUsuario = new frmManUsuario();
+       frmManUsuario manUsuario = new frmManUsuario();
         manUsuario.setLocationRelativeTo(this);
         manUsuario.setVisible(true);
-        
-        
     }//GEN-LAST:event_btnManUsrMouseClicked
 
     private void btnPrestamoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrestamoMouseClicked
-     
-        jdPrestamoLibros prestamoLibros = new jdPrestamoLibros();
+       jdPrestamoLibros prestamoLibros = new jdPrestamoLibros();
         prestamoLibros.setLocationRelativeTo(this);
         prestamoLibros.setVisible(true);
-        
     }//GEN-LAST:event_btnPrestamoMouseClicked
 
     private void btnDevolucionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDevolucionesMouseClicked
-    jdDevolucionLibro devolucionLibro = new jdDevolucionLibro();
-    devolucionLibro.setLocationRelativeTo(this);
-    devolucionLibro.setVisible(true);
-    
-    
+        jdDevolucionLibro devolucionLibro = new jdDevolucionLibro();
+        devolucionLibro.setLocationRelativeTo(this);
+        devolucionLibro.setVisible(true);
     }//GEN-LAST:event_btnDevolucionesMouseClicked
 
     private void btnSobreNosotrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSobreNosotrosMouseClicked
-    jdSobreNosotros obj = new jdSobreNosotros(this, true);
+        jdSobreNosotros obj = new jdSobreNosotros(this, true);
         obj.setLocationRelativeTo(this);
         obj.setVisible(true);
-        
- 
     }//GEN-LAST:event_btnSobreNosotrosMouseClicked
 
-   
+    public void fechaHoy() {
+        LocalDate hoy = LocalDate.now();
+        DateTimeFormatter formatoLargo = DateTimeFormatter.ofPattern("EEEE, d 'de' MMMM yyyy", new Locale("es", "ES"));
+        txtFechaHoy.setText(hoy.format(formatoLargo));
+    }
+    
+    public void Estadisticas() {
+        txtTotalLibros.setText("" + LibroDAO.cantidadtotalLibros());
+        txtTotalUsr.setText("" + UsuarioDAO.getCantidad());
+        txtTotalPrestamos.setText("" + (PrestamoDAO.getCantidad() - PrestamoDAO.cantDevoluciones()));
+        txtTotalDevoluciones.setText(" " + PrestamoDAO.cantDevoluciones());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnDevoluciones;
@@ -628,53 +627,4 @@ public class frMenu extends javax.swing.JFrame {
     private javax.swing.JLabel txtTotalPrestamos;
     private javax.swing.JLabel txtTotalUsr;
     // End of variables declaration//GEN-END:variables
-
-    public void fechaHoy (){
-         LocalDate hoy = LocalDate.now();
-        
-        int nDiaSemana = hoy.getDayOfWeek().getValue();
-        int nDiaMes = hoy.getDayOfMonth();
-        int nMes = hoy.getMonthValue();
-        int anio = hoy.getYear(); // Extraemos el año (2026)
-
-        String nombreDia = switch (nDiaSemana) {
-            case 1 -> "Lunes";
-            case 2 -> "Martes";
-            case 3 -> "Miércoles";
-            case 4 -> "Jueves";
-            case 5 -> "Viernes";
-            case 6 -> "Sábado";
-            case 7 -> "Domingo";
-            default -> "";
-        };
-
-        String nombreMes = switch (nMes) {
-            case 1 -> "Enero";
-            case 2 -> "Febrero";
-            case 3 -> "Marzo";
-            case 4 -> "Abril";
-            case 5 -> "Mayo";
-            case 6 -> "Junio";
-            case 7 -> "Julio";
-            case 8 -> "Agosto";
-            case 9 -> "Septiembre";
-            case 10 -> "Octubre";
-            case 11 -> "Noviembre";
-            case 12 -> "Diciembre";
-            default -> "";
-        };
-
-    
-        txtFechaHoy.setText(nombreDia + ", " + nDiaMes + " de " + nombreMes + " " + anio);
-    }
-    
-    public void Estadisticas (){
-        
-        txtTotalLibros.setText("" + LibroDAO.cantidadtotalLibros());
-        txtTotalUsr.setText(""+UsuarioDAO.getCantidad());
-        txtTotalPrestamos.setText(""+(PrestamoDAO.getCantidad()-PrestamoDAO.cantDevoluciones()));
-        txtTotalDevoluciones.setText(" "+PrestamoDAO.cantDevoluciones());
-        
-    }
-
 }
