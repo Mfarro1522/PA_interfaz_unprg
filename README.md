@@ -8,6 +8,8 @@ Sistema de gestión de biblioteca desarrollado en Java Swing para la Universidad
 
 ## 📑 Tabla de Contenidos
 
+- [Créditos](#-créditos)
+- [Capturas de Pantalla](#-capturas-de-pantalla)
 - [Características](#-características)
 - [Arquitectura del Proyecto](#-arquitectura-del-proyecto)
 - [Patrones de Diseño](#-patrones-de-diseño)
@@ -17,8 +19,71 @@ Sistema de gestión de biblioteca desarrollado en Java Swing para la Universidad
 - [Cómo Usar](#-cómo-usar)
 - [Contribuir al Proyecto](#-contribuir-al-proyecto)
 - [Roadmap y Próximos Pasos](#-roadmap-y-próximos-pasos)
-- [Créditos](#-créditos)
 - [Licencia](#-licencia)
+
+## 👥 Créditos
+
+### Equipo de Desarrollo
+
+Este proyecto fue desarrollado como parte del curso de Desarrollo de aplicaciones con interfaz gráfica en la Universidad Nacional Pedro Ruiz Gallo (UNPRG).
+
+**Desarrolladores**:
+
+| Desarrollador | GitHub | Contribución |
+|---------------|--------|-------------|
+| **Fernandez** | [@fernandez](https://github.com/jackhfernandez) | Modelos de datos y DAOs, servicios y arquitectura |
+| **Farro** | [@farro](https://github.com/mfarro1522) | Diseño UI/UX, interfaces y estadísticas |
+
+### Recursos y Bibliotecas
+
+- **JCalendar** - Toedter ([Website](https://toedter.com/jcalendar/))
+- **Java Swing** - Oracle
+- **NetBeans IDE** - Apache Software Foundation
+- **Componentes UI personalizados** - Inspirados en [1BestCsharp](https://1bestcsharp.blogspot.com/)
+
+### Inspiración y Referencias
+
+- Arquitectura en capas: Martin Fowler - "Patterns of Enterprise Application Architecture"
+- Patrones de diseño: Gang of Four - "Design Patterns"
+- Java Swing Best Practices: Oracle Documentation
+
+## 📸 Capturas de Pantalla
+
+### Pantalla de Login
+
+![Login](assets/login.png)
+
+Interfaz de autenticación con diseño moderno y componentes personalizados.
+
+### Dashboard Principal
+
+![Dashboard](assets/principal.png)
+
+Menú principal con estadísticas en tiempo real y acceso rápido a todas las funcionalidades.
+
+### Gestión de Usuarios
+
+![Registro de Usuarios](assets/ventana-registro-usuarios.png)
+
+Interfaz para registrar, buscar, actualizar y eliminar usuarios (estudiantes, docentes y administrativos).
+
+### Gestión de Libros
+
+![Registro de Libros](assets/ventana-registro-libros.png)
+
+Formulario completo para la administración del catálogo de libros.
+
+### Sistema de Préstamos
+
+![Registro de Préstamos](assets/ventana-registro-prestamos.png)
+
+Proceso de préstamo con búsqueda de usuarios y libros, y selección de fechas.
+
+### Gestión de Devoluciones
+
+![Devolución de Libros](assets/ventana-devolucion.png)
+
+Interfaz para procesar devoluciones y actualizar el inventario.
 
 ## ✨ Características
 
@@ -733,30 +798,7 @@ Antes de implementar un feature grande:
   - Separar configuración de código
   - Perfiles (desarrollo, producción)
 
-## 👥 Créditos
-
-### Equipo de Desarrollo
-
-Este proyecto fue desarrollado como parte del curso de Programación Avanzada en la Universidad Nacional Pedro Ruiz Gallo (UNPRG).
-
-**Desarrolladores**:
-- **Fernandez** - Modelos de datos y DAOs, servicios y arquitectura
-- **Farro** - Diseño UI/UX, interfaces y estadisticas
-
-### Recursos y Bibliotecas
-
-- **JCalendar** - Toedter ([Website](https://toedter.com/jcalendar/))
-- **Java Swing** - Oracle
-- **NetBeans IDE** - Apache Software Foundation
-- **Componentes UI personalizados** - Inspirados en [1BestCsharp](https://1bestcsharp.blogspot.com/)
-
-### Inspiración y Referencias
-
-- Arquitectura en capas: Martin Fowler - "Patterns of Enterprise Application Architecture"
-- Patrones de diseño: Gang of Four - "Design Patterns"
-- Java Swing Best Practices: Oracle Documentation
-
-## 📄 Licencia
+##  Licencia
 
 Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 
